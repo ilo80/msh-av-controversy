@@ -21,6 +21,7 @@ function ActorsGraph() {
     ctx: CanvasRenderingContext2D,
     globalScale: number,
   ) => {
+    void globalScale;
     // Typage étendu pour stocker l'état "cassé"
     const typedNode = node as NodeObject<Actor> & {
       __img?: HTMLImageElement;
@@ -44,10 +45,10 @@ function ActorsGraph() {
     // Si pas encore positionné, sortir
     if (node.x == null || node.y == null) return;
 
-    // compute node size from image dimensions
-    const imgWidth = img.naturalWidth / globalScale;
-    const imgHeight = img.naturalHeight / globalScale;
-    const defaultSize = 80 / globalScale;
+    // compute node size from image dimensions (scale with zoom)
+    const imgWidth = img.naturalWidth;
+    const imgHeight = img.naturalHeight;
+    const defaultSize = 80;
     const width = imgWidth || defaultSize;
     const height = imgHeight || defaultSize;
     const halfWidth = width / 2;
