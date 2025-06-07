@@ -1,9 +1,10 @@
-import { useRef, type MutableRefObject } from 'react'
+import { useRef, useEffect, type MutableRefObject } from 'react'
 import ForceGraph2D, {
   type ForceGraphMethods,
   type NodeObject,
   type LinkObject,
 } from 'react-force-graph-2d'
+import { forceCollide } from 'd3-force-3d'
 import actorGraphData from '../data/actorsData'
 import type { Actor } from '../models/actor/actor'
 import type { Link } from '../models/graph/link'
@@ -43,7 +44,8 @@ function ActorsGraph() {
     // Si pas encore positionné, sortir
     if (node.x == null || node.y == null) return;
 
-    const size = 40 / globalScale;
+    // increase node size for better visibility
+    const size = 80 / globalScale;
     const halfSize = size / 2;
 
     // Dessiner une forme de secours si l'image est cassée ou pas encore chargée
@@ -56,6 +58,11 @@ function ActorsGraph() {
       ctx.drawImage(img, node.x - halfSize, node.y - halfSize, size, size);
     }
   };
+
+  useEffect(() => {
+    const radius = 40;
+    fgRef.current?.d3Force('collision', forceCollide(radius));
+  }, []);
 
 
   return (
