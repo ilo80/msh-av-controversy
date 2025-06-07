@@ -16,6 +16,8 @@ function ActorsGraph() {
     ForceGraphMethods<NodeObject<Actor>, LinkObject<Actor, Link>> | undefined
   >
 
+  const MAX_NODE_SIZE = 20; // Taille maximale du noeud
+
   const drawNode = (
     node: NodeObject<Actor>,
     ctx: CanvasRenderingContext2D,
@@ -44,18 +46,33 @@ function ActorsGraph() {
     // Si pas encore positionné, sortir
     if (node.x == null || node.y == null) return;
 
-    // increase node size for better visibility
-    const size = 80 / globalScale;
-    const halfSize = size / 2;
+    let imageWidth = img.naturalWidth;
+    let imageHeight = img.naturalHeight;
+
+    if (!imageWidth || !imageHeight) {
+      imageWidth = MAX_NODE_SIZE;
+      imageHeight = MAX_NODE_SIZE;
+    } else {
+      const maxDimension = Math.max(imageWidth, imageHeight) / globalScale;
+      const scaleFactor = MAX_NODE_SIZE / maxDimension;
+
+      if (maxDimension > MAX_NODE_SIZE) {
+        imageWidth *= scaleFactor;
+        imageHeight *= scaleFactor;
+      }
+    }
+
+    const halfWidth = imageWidth / 2;
+    const halfHeight = imageHeight / 2;
 
     // Dessiner une forme de secours si l'image est cassée ou pas encore chargée
     if (typedNode.__imgBroken || !img.complete || img.naturalWidth === 0) {
       ctx.beginPath();
-      ctx.arc(node.x, node.y, halfSize, 0, 2 * Math.PI, false);
+      ctx.arc(node.x, node.y, halfWidth, 0, 2 * Math.PI, false);
       ctx.fillStyle = '#ccc';
       ctx.fill();
     } else {
-      ctx.drawImage(img, node.x - halfSize, node.y - halfSize, size, size);
+      ctx.drawImage(img, node.x - halfWidth, node.y - halfHeight, imageWidth, imageHeight);
     }
   };
 
