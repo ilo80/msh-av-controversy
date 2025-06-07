@@ -94,7 +94,7 @@ const links: Link[] = [
   // { source: '4', target: '6' },
   { source: '5', target: '7' },
   { source: '5', target: '8' },
-  { source: "6", target: '7' },
+  { source: '6', target: '7' },
   { source: "9", target: '10' },
   // { source: '6', target: '9' },
   // { source: '7', target: '9' },
