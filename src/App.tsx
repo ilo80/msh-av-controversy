@@ -1,5 +1,5 @@
 
-import ActorsGraph from './components/ActorsGraph.tsx'
+import ActorsGraph from './components/ActorsGraph'
 
 function App() {
   
