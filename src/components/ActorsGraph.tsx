@@ -23,7 +23,7 @@ function ActorsGraph() {
     ctx: CanvasRenderingContext2D,
     globalScale: number,
   ) => {
-    // Typage étendu pour stocker l'état "cassé"
+    // Extended typing to store the "broken" state
     const typedNode = node as NodeObject<Actor> & {
       __img?: HTMLImageElement;
       __imgBroken?: boolean;
