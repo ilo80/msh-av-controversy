@@ -3,11 +3,11 @@ import type { Link } from '../models/graph/link'
 import type { GraphData } from '../models/graph/graph-data'
 
 // Importing images for actors
-import researcherImage from '../assets/actor/chercheurs.png'
+import researcherImage from '../assets/actor/chercheurs.svg'
 import cnilImage from '../assets/actor/cnil.svg'
-import syndicatsImage from '../assets/actor/syndicats.png'
-import associationsImage from '../assets/actor/association_consommateurs.png'
-import governmentImage from '../assets/actor/gouvernements.png'
+import syndicatsImage from '../assets/actor/syndicats.svg'
+import associationsImage from '../assets/actor/associations.svg'
+import governmentImage from '../assets/actor/gouvernements.svg'
 import teslaImage from '../assets/actor/tesla.svg'
 import waymoImage from '../assets/actor/waymo.svg'
 import xpengImage from '../assets/actor/xpeng.svg'
@@ -91,14 +91,10 @@ const links: Link[] = [
   { source: '2', target: '3' },
   { source: '2', target: '4' },
   { source: '3', target: '4' },
-  // { source: '4', target: '6' },
   { source: '5', target: '7' },
   { source: '5', target: '8' },
   { source: '6', target: '7' },
   { source: "9", target: '10' },
-  // { source: '6', target: '9' },
-  // { source: '7', target: '9' },
-
 ]
 
 const actorGraphData: GraphData = {
