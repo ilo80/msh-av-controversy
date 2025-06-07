@@ -1,6 +1,6 @@
 # AGENTS.md
 
-## Convention Commits
+## Conventional Commits
 
 > **Always follow the Conventional Commits specification** when creating commits. You are expected to emit commit messages in the following format:
 
