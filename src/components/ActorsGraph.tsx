@@ -20,26 +20,43 @@ function ActorsGraph() {
     ctx: CanvasRenderingContext2D,
     globalScale: number,
   ) => {
-    const typedNode = node as NodeObject<Actor> & { __img?: HTMLImageElement }
-    const img = typedNode.__img || new Image()
-    if (!typedNode.__img) {
-      typedNode.__img = img
-      img.src = node.image
-      img.onload = () => {
-        fgRef.current?.d3ReheatSimulation()
-      }
+    // Typage étendu pour stocker l'état "cassé"
+    const typedNode = node as NodeObject<Actor> & {
+      __img?: HTMLImageElement;
+      __imgBroken?: boolean;
+    };
+
+    // Initialisation ou réutilisation de l'image
+    let img = typedNode.__img;
+    if (!img) {
+      img = new Image();
+      typedNode.__img = img;
+      img.src = node.image; // Assurez-vous que node.image est un chemin valide
+      img.onload = () => fgRef.current?.d3ReheatSimulation();
+      img.onerror = () => {
+        typedNode.__imgBroken = true;
+        // éventuellement re-dessiner le canvas
+        fgRef.current?.d3ReheatSimulation();
+      };
     }
-    const size = 40 / globalScale
-    const halfSize = size / 2
-    if (img.complete) {
-      ctx.drawImage(img, node.x! - halfSize, node.y! - halfSize, size, size)
+
+    // Si pas encore positionné, sortir
+    if (node.x == null || node.y == null) return;
+
+    const size = 40 / globalScale;
+    const halfSize = size / 2;
+
+    // Dessiner une forme de secours si l'image est cassée ou pas encore chargée
+    if (typedNode.__imgBroken || !img.complete || img.naturalWidth === 0) {
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, halfSize, 0, 2 * Math.PI, false);
+      ctx.fillStyle = '#ccc';
+      ctx.fill();
     } else {
-      ctx.beginPath()
-      ctx.arc(node.x!, node.y!, halfSize, 0, 2 * Math.PI, false)
-      ctx.fillStyle = '#ccc'
-      ctx.fill()
+      ctx.drawImage(img, node.x - halfSize, node.y - halfSize, size, size);
     }
-  }
+  };
+
 
   return (
     <ForceGraph2D<Actor, Link>

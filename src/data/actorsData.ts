@@ -8,21 +8,21 @@ const actors: Actor[] = [
     name: 'Alice',
     opinion: 'favorable',
     engagement: 0.8,
-    image: 'https://via.placeholder.com/150',
+    image: 'https://placehold.co/150',
   },
   {
     id: '2',
     name: 'Bob',
     opinion: 'neutre',
     engagement: 0.5,
-    image: 'https://via.placeholder.com/150',
+    image: 'https://placehold.co/150',
   },
   {
     id: '3',
     name: 'Charlie',
     opinion: 'défavorable',
     engagement: 0.9,
-    image: 'https://via.placeholder.com/150',
+    image: 'https://placehold.co/150',
   },
 ]
 
