@@ -16,7 +16,7 @@ function ActorsGraph() {
     ForceGraphMethods<NodeObject<Actor>, LinkObject<Actor, Link>> | undefined
   >
 
-  const MAX_NODE_SIZE = 20; // Taille maximale du noeud
+  const MAX_NODE_SIZE = 20; // Maximum node size
 
   const drawNode = (
     node: NodeObject<Actor>,
