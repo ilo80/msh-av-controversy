@@ -89,6 +89,8 @@ function ActorsGraph() {
       nodeLabel={node => `${node.name} - ${node.opinion}`}
       nodeCanvasObject={drawNode}
       linkWidth={1}
+      minZoom={2}
+      maxZoom={4}
     />
   )
 }
