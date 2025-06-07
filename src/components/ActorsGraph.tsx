@@ -44,23 +44,33 @@ function ActorsGraph() {
     // Si pas encore positionné, sortir
     if (node.x == null || node.y == null) return;
 
-    // increase node size for better visibility
-    const size = 80 / globalScale;
-    const halfSize = size / 2;
+    // compute node size from image dimensions
+    const imgWidth = img.naturalWidth / globalScale;
+    const imgHeight = img.naturalHeight / globalScale;
+    const defaultSize = 80 / globalScale;
+    const width = imgWidth || defaultSize;
+    const height = imgHeight || defaultSize;
+    const halfWidth = width / 2;
+    const halfHeight = height / 2;
 
     // Dessiner une forme de secours si l'image est cassée ou pas encore chargée
     if (typedNode.__imgBroken || !img.complete || img.naturalWidth === 0) {
       ctx.beginPath();
-      ctx.arc(node.x, node.y, halfSize, 0, 2 * Math.PI, false);
+      ctx.arc(node.x, node.y, Math.max(halfWidth, halfHeight), 0, 2 * Math.PI, false);
       ctx.fillStyle = '#ccc';
       ctx.fill();
     } else {
-      ctx.drawImage(img, node.x - halfSize, node.y - halfSize, size, size);
+      ctx.drawImage(img, node.x - halfWidth, node.y - halfHeight, width, height);
     }
   };
 
   useEffect(() => {
-    const radius = 40;
+    const radius = (n: NodeObject<Actor> & { __img?: HTMLImageElement }) => {
+      const img = n.__img;
+      if (!img || !img.naturalWidth || !img.naturalHeight) return 40;
+      return Math.max(img.naturalWidth, img.naturalHeight) / 2;
+    };
+
     fgRef.current?.d3Force('collision', forceCollide(radius));
   }, []);
 
