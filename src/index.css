@@ -120,6 +120,7 @@ h3 {
   z-index: 2;
   pointer-events: none;
 }
+
 .actor-section {
   display: flex;
   align-items: flex-start;
@@ -157,4 +158,22 @@ h3 {
   margin-top: 1rem;
   display: flex;
   gap: 0.5rem;
+
+.introduction-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.introduction-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.introduction-description {
+  max-width: 600px;
 }
