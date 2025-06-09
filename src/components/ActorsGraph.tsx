@@ -1,4 +1,4 @@
-import { useRef, useEffect, type MutableRefObject } from 'react'
+import { useRef, useEffect, useState, type MutableRefObject } from 'react'
 import ForceGraph2D, {
   type ForceGraphMethods,
   type NodeObject,
@@ -8,6 +8,7 @@ import { forceCollide } from 'd3-force-3d'
 import actorGraphData from '../data/actorsData'
 import type { Actor } from '../models/actor/actor'
 import type { Link } from '../models/graph/link'
+import ActorSidebar from './ActorSidebar'
 
 function ActorsGraph() {
   const fgRef = useRef<
@@ -17,6 +18,8 @@ function ActorsGraph() {
   >
 
   const MAX_NODE_SIZE = 20; // Maximum node size
+
+  const [selectedActor, setSelectedActor] = useState<Actor | null>(null)
 
   const drawNode = (
     node: NodeObject<Actor>,
@@ -81,17 +84,22 @@ function ActorsGraph() {
     fgRef.current?.d3Force('collision', forceCollide(radius));
   }, []);
 
-
   return (
-    <ForceGraph2D<Actor, Link>
-      ref={fgRef}
-      graphData={actorGraphData}
-      nodeLabel={node => `${node.name} - ${node.opinion}`}
-      nodeCanvasObject={drawNode}
-      linkWidth={1}
-      minZoom={2}
-      maxZoom={4}
-    />
+    <div className="graph-container">
+      <ForceGraph2D<Actor, Link>
+        ref={fgRef}
+        graphData={actorGraphData}
+        nodeLabel={node => `${node.name} - ${node.opinion}`}
+        nodeCanvasObject={drawNode}
+        nodeRelSize={MAX_NODE_SIZE}
+        linkWidth={1}
+        minZoom={2}
+        maxZoom={4}
+        onNodeClick={node => setSelectedActor(node as Actor)}
+        onBackgroundClick={() => setSelectedActor(null)}
+      />
+      <ActorSidebar actor={selectedActor} onClose={() => setSelectedActor(null)} />
+    </div>
   )
 }
 

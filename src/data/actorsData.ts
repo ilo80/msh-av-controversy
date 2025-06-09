@@ -21,6 +21,10 @@ const actors: Actor[] = [
     opinion: 'Farouchement opposés',
     engagement: 0.8,
     image: syndicatsImage,
+    description: 'Groupes représentant les intérêts des travailleurs.',
+    arguments: [
+      "Peur de suppression massive d’emplois"
+    ]
   },
   {
     id: '2',
@@ -28,6 +32,10 @@ const actors: Actor[] = [
     opinion: 'Prudents',
     engagement: 0.2,
     image: associationsImage,
+    description: 'Organisations veillant à la protection des usagers.',
+    arguments: [
+      "Demandent des preuves que les voitures autonomes sont plus sûres que les humains",
+    ]
   },
   {
     id: '3',
@@ -35,6 +43,10 @@ const actors: Actor[] = [
     opinion: 'Prudents',
     engagement: 0.3,
     image: governmentImage,
+    description: 'Institutions chargées de définir les règles.',
+    arguments: [
+      "Réduction des accidents mortels"
+    ]
   },
   {
     id: '4',
@@ -42,6 +54,11 @@ const actors: Actor[] = [
     opinion: 'Neutres',
     engagement: 0.5,
     image: researcherImage,
+    description: "Communauté scientifique étudiant l'impact de ces technologies.",
+    arguments: [
+      "Possibilité de prouver la fiabilité (simulateurs, tests sur des milliards de kilomètres)",
+      "Limites techniques dans les edge case, questions éthiques"
+    ]
   },
   {
     id: '5',
@@ -49,6 +66,10 @@ const actors: Actor[] = [
     opinion: 'Plutôt défavorable',
     engagement: 0.5,
     image: cnilImage,
+    description: "Autorité française de protection des données personnelles.",
+    arguments: [
+      "Risque concernant les données personnelles"
+    ]
   },
   {
     id: "6",
@@ -56,6 +77,10 @@ const actors: Actor[] = [
     opinion: "Partisan convaincu",
     engagement: 0.9,
     image: teslaImage,
+    description: "Constructeur automobile pionnier des véhicules autonomes.",
+    arguments: [
+      "L’IA réduira les accidents et sauvera des vies"
+    ]
   },
   {
     id: '7',
@@ -63,6 +88,10 @@ const actors: Actor[] = [
     opinion: 'Partisan convaincu',
     engagement: 0.9,
     image: waymoImage,
+    description: 'Filiale de Google dédiée aux voitures autonomes.',
+    arguments: [
+      "Peu d’accidents (3 avec blessés en 11,4 millions de km)"
+    ]
   },
   {
     id: '8',
@@ -70,6 +99,10 @@ const actors: Actor[] = [
     opinion: 'Partisan convaincu',
     engagement: 0.9,
     image: xpengImage,
+    description: 'Entreprise chinoise investissant massivement dans l\'AV.',
+    arguments: [
+      "Réduire les accidents de la route"
+    ]
   },
   {
     id: '9',
@@ -77,6 +110,10 @@ const actors: Actor[] = [
     opinion: 'Partisan convaincu',
     engagement: 0.5,
     image: uberImage,
+    description: "Société de VTC explorant l'autonomie pour son service.",
+    arguments: [
+      "Eliminer le coût des chauffeurs et rendre le prix des courses plus abordable"
+    ]
   },
   {
     id: '10',
@@ -84,6 +121,11 @@ const actors: Actor[] = [
     opinion: 'Partisan convaincu',
     engagement: 0.5,
     image: generalMotorsImage,
+    description: 'Groupe industriel américain fortement investi dans l\'AV.',
+    arguments: [
+      "Réduire la congestion et accidents de la route",
+      "Avantages environnementaux du partage de véhicules électriques autonomes"
+    ]
   },
 ]
 

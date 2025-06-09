@@ -9,9 +9,7 @@ function App() {
         <h1>Bienvenue</h1>
         <p>Ceci est un site sur la controverse des voitures autonomes</p>
       </div>
-      <div style={{ height: '600px' }}>
-        <ActorsGraph />
-      </div>
+      <ActorsGraph />
     </div>
   )
 }
