@@ -120,6 +120,40 @@ h3 {
   z-index: 2;
   pointer-events: none;
 }
+
+.actor-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.actor-section-info {
+  flex: 1;
+  text-align: left;
+}
+
+.actor-section-opinion {
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.actor-section-description {
+  margin-bottom: 1rem;
+}
+
+.actor-section-arguments {
+  list-style: square;
+  padding-left: 1rem;
+}
+
+.actor-section-controls {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+
 .introduction-container {
   display: flex;
   flex-direction: column;
