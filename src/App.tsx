@@ -1,15 +1,14 @@
 
 import ActorsGraph from './components/ActorsGraph'
 import ActorSection from './components/ActorSection'
-      <ActorsGraph />
+import IntroductionSection from './components/Introduction'
 
 function App() {
-  
   return (
     <div className="container">
       <Introduction />
-      <ActorsGraph />
       <ActorSection />
+      <ActorsGraph />
     </div>
   )
 }
