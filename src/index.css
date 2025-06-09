@@ -15,3 +15,62 @@ body {
   border: 1px solid #eee;
   border-radius: 5px;
 }
+
+.graph-container {
+  position: relative;
+  height: 600px;
+}
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.close-button {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.sidebar-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.opinion {
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.engagement {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.engagement-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.description {
+  flex-grow: 1;
+}

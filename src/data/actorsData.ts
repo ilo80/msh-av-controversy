@@ -21,6 +21,7 @@ const actors: Actor[] = [
     opinion: 'Farouchement opposés',
     engagement: 0.8,
     image: syndicatsImage,
+    description: 'Groupes représentant les intérêts des travailleurs.'
   },
   {
     id: '2',
@@ -28,6 +29,7 @@ const actors: Actor[] = [
     opinion: 'Prudents',
     engagement: 0.2,
     image: associationsImage,
+    description: 'Organisations veillant à la protection des usagers.'
   },
   {
     id: '3',
@@ -35,6 +37,7 @@ const actors: Actor[] = [
     opinion: 'Prudents',
     engagement: 0.3,
     image: governmentImage,
+    description: 'Institutions chargées de définir les règles.'
   },
   {
     id: '4',
@@ -42,6 +45,7 @@ const actors: Actor[] = [
     opinion: 'Neutres',
     engagement: 0.5,
     image: researcherImage,
+    description: "Communauté scientifique étudiant l'impact de ces technologies."
   },
   {
     id: '5',
@@ -49,6 +53,7 @@ const actors: Actor[] = [
     opinion: 'Plutôt défavorable',
     engagement: 0.5,
     image: cnilImage,
+    description: "Autorité française de protection des données personnelles."
   },
   {
     id: "6",
@@ -56,6 +61,7 @@ const actors: Actor[] = [
     opinion: "Partisan convaincu",
     engagement: 0.9,
     image: teslaImage,
+    description: "Constructeur automobile pionnier des véhicules autonomes."
   },
   {
     id: '7',
@@ -63,6 +69,7 @@ const actors: Actor[] = [
     opinion: 'Partisan convaincu',
     engagement: 0.9,
     image: waymoImage,
+    description: 'Filiale de Google dédiée aux voitures autonomes.'
   },
   {
     id: '8',
@@ -70,6 +77,7 @@ const actors: Actor[] = [
     opinion: 'Partisan convaincu',
     engagement: 0.9,
     image: xpengImage,
+    description: 'Entreprise chinoise investissant massivement dans l\'AV.'
   },
   {
     id: '9',
@@ -77,6 +85,7 @@ const actors: Actor[] = [
     opinion: 'Partisan convaincu',
     engagement: 0.5,
     image: uberImage,
+    description: "Société de VTC explorant l'autonomie pour son service."
   },
   {
     id: '10',
@@ -84,6 +93,7 @@ const actors: Actor[] = [
     opinion: 'Partisan convaincu',
     engagement: 0.5,
     image: generalMotorsImage,
+    description: 'Groupe industriel américain fortement investi dans l\'AV.'
   },
 ]
 
