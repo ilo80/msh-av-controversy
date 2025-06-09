@@ -40,7 +40,7 @@ function ActorSidebar({ actor, onClose }: ActorSidebarProps) {
           className="engagement-bullet"
           style={{ backgroundColor: engagementColor }}
         />
-        Engagement: {actor.engagement}
+        Engagement: {actor.engagement * 100}%
       </div>
       <p className="description">{actor.description}</p>
       <h3>Arguments</h3>
