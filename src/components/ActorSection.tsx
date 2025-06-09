@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import actorGraphData from '../data/actorsData'
 import type { Actor } from '../models/actor/actor'
 import { ProgressBar } from './ProgressBar'
@@ -14,12 +14,22 @@ const opinionColors: Record<string, string> = {
 function ActorSection() {
   const actors = actorGraphData.nodes
   const [index, setIndex] = useState(0)
+  const lastScrollRef = useRef(0)
 
   const actor = actors[index] as Actor
   const opinionColor = opinionColors[actor.opinion] ?? '#718096'
 
+  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    e.preventDefault()
+    const now = Date.now()
+    if (now - lastScrollRef.current < 300) return
+    lastScrollRef.current = now
+    if (e.deltaY > 0 && index < actors.length - 1) setIndex(i => i + 1)
+    if (e.deltaY < 0 && index > 0) setIndex(i => i - 1)
+  }
+
   return (
-    <div className="actor-section">
+    <div className="actor-section" onWheel={handleWheel}>
       <img src={actor.image} alt={actor.name} className="actor-section-image" />
       <div className="actor-section-info">
         <h2>{actor.name}</h2>
@@ -37,17 +47,6 @@ function ActorSection() {
             <li key={i}>{arg}</li>
           ))}
         </ul>
-        <div className="actor-section-controls">
-          <button disabled={index === 0} onClick={() => setIndex(i => Math.max(0, i - 1))}>
-            Précédent
-          </button>
-          <button
-            disabled={index === actors.length - 1}
-            onClick={() => setIndex(i => Math.min(actors.length - 1, i + 1))}
-          >
-            Suivant
-          </button>
-        </div>
       </div>
     </div>
   )

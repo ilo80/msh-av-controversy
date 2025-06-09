@@ -128,11 +128,6 @@ h3 {
   margin: 2rem 0;
 }
 
-.actor-section-image {
-  width: 200px;
-  height: auto;
-}
-
 .actor-section-info {
   flex: 1;
   text-align: left;

@@ -1,7 +1,7 @@
 
 import ActorsGraph from './components/ActorsGraph'
 import ActorSection from './components/ActorSection'
-import Introduction from './components/Introduction'
+      <ActorsGraph />
 
 function App() {
   
