@@ -57,7 +57,7 @@ body {
 }
 
 .engagement {
-  display: flex;
+  display: inline-block;
   align-items: center;
   margin-bottom: 0.5rem;
 }
@@ -88,3 +88,4 @@ h3 {
   padding: 0.25rem 0;
   border-bottom: 1px solid #eee;
 }
+

@@ -1,4 +1,5 @@
 import type { Actor } from '../models/actor/actor'
+import { ProgressBar } from './ProgressBar'
 
 interface ActorSidebarProps {
   actor: Actor | null
@@ -36,11 +37,10 @@ function ActorSidebar({ actor, onClose }: ActorSidebarProps) {
         {actor.opinion}
       </div>
       <div className="engagement">
-        <span
-          className="engagement-bullet"
-          style={{ backgroundColor: engagementColor }}
-        />
-        Engagement: {actor.engagement * 100}%
+        <span style={{ display: 'block', marginBottom: "6px", color: engagementColor }}>
+          Engagement : {Math.round(actor.engagement * 100)}%
+        </span>
+        <ProgressBar value={actor.engagement} />
       </div>
       <p className="description">{actor.description}</p>
       <h3>Arguments</h3>
