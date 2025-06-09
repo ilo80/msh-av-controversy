@@ -43,6 +43,14 @@ function ActorSidebar({ actor, onClose }: ActorSidebarProps) {
         Engagement: {actor.engagement}
       </div>
       <p className="description">{actor.description}</p>
+      <h3>Arguments</h3>
+      <ul className="arguments-list">
+        {actor.arguments.map((arg, index) => (
+          <li key={index} className="argument-item">
+            {arg}
+          </li>
+        ))}
+      </ul>
     </aside>
   )
 }

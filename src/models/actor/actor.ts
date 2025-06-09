@@ -5,4 +5,5 @@ export interface Actor {
   engagement: number
   image: string
   description: string
+  arguments: string[]
 }
