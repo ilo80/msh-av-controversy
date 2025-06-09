@@ -16,7 +16,7 @@ function ActorSection() {
   const [index, setIndex] = useState(0)
   const lastScrollRef = useRef(0)
   const containerRef = useRef<HTMLDivElement>(null)
-  const hasInteracted = useRef(false) // <- NEW
+  const hasInteracted = useRef(false) // To track if the user has interacted with the component
 
   const actor = actors[index] as Actor
   const opinionColor = opinionColors[actor.opinion] ?? '#718096'
@@ -34,7 +34,7 @@ function ActorSection() {
     }
   }, [index, actors.length])
 
-  // Centre le composant UNIQUEMENT après une vraie interaction utilisateur
+  // Center the component ONLY after a real user interaction
   useEffect(() => {
     if (hasInteracted.current) {
       setTimeout(() => {
@@ -44,11 +44,11 @@ function ActorSection() {
         })
       }, 0)
     }
-    // sinon on ne fait rien au mount
+    // else we don't scroll into view on initial load
   }, [index])
 
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
-    hasInteracted.current = true // Déclenche le scroll au changement d’index
+    hasInteracted.current = true // Launch interaction on first scroll
     e.preventDefault()
     e.stopPropagation()
 
