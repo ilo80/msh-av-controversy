@@ -94,7 +94,7 @@ function ActorsGraph() {
         linkWidth={1}
         minZoom={2}
         maxZoom={4}
-        onNodeClick={node => setSelectedActor(node)}
+        onNodeClick={node => setSelectedActor(node as Actor)}
         onBackgroundClick={() => setSelectedActor(null)}
       />
       <ActorSidebar actor={selectedActor} onClose={() => setSelectedActor(null)} />
