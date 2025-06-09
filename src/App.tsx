@@ -6,7 +6,7 @@ import IntroductionSection from './components/Introduction'
 function App() {
   return (
     <div className="container">
-      <Introduction />
+      <IntroductionSection />
       <ActorSection />
       <ActorsGraph />
     </div>
