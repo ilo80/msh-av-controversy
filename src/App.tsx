@@ -1,5 +1,6 @@
 
 import ActorsGraph from './components/ActorsGraph'
+import ActorSection from './components/ActorSection'
 
 function App() {
   
@@ -10,6 +11,7 @@ function App() {
         <p>Ceci est un site sur la controverse des voitures autonomes</p>
       </div>
       <ActorsGraph />
+      <ActorSection />
     </div>
   )
 }
