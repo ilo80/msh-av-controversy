@@ -14,17 +14,10 @@ const opinionColors: Record<string, string> = {
   'Partisan convaincu': '#38a169',
 }
 
-function getEngagementColor(engagement: number): string {
-  if (engagement > 0.7) return '#38a169'
-  if (engagement > 0.4) return '#d69e2e'
-  return '#e53e3e'
-}
-
 function ActorSidebar({ actor, onClose }: ActorSidebarProps) {
   if (!actor) return null
 
   const opinionColor = opinionColors[actor.opinion] ?? '#718096'
-  const engagementColor = getEngagementColor(actor.engagement)
 
   return (
     <aside className="sidebar">
@@ -37,10 +30,7 @@ function ActorSidebar({ actor, onClose }: ActorSidebarProps) {
         {actor.opinion}
       </div>
       <div className="engagement">
-        <span style={{ display: 'block', marginBottom: "6px", color: engagementColor }}>
-          Engagement : {Math.round(actor.engagement * 100)}%
-        </span>
-        <ProgressBar value={actor.engagement} />
+        <ProgressBar value={actor.engagement} text={`Engagement : ${Math.round(actor.engagement * 100)}%`} />
       </div>
       <p className="description">{actor.description}</p>
       <h3>Arguments</h3>
