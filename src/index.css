@@ -120,3 +120,69 @@ h3 {
   z-index: 2;
   pointer-events: none;
 }
+.scroll-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  margin: 4rem 0;
+}
+
+.scroll-section.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.timeline {
+  position: fixed;
+  top: 20%;
+  right: 1rem;
+  width: 220px;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #ccc;
+}
+
+.timeline-item {
+  position: relative;
+  margin: 2rem 0;
+  padding-left: 40px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  background: #000;
+  border-radius: 50%;
+}
+
+.actors-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.actor-card {
+  background: #f9f9f9;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+.actor-card img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 0.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
