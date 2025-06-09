@@ -4,6 +4,9 @@ import timelineData from '../data/timelineData'
 function TimelineSection() {
   const [selected, setSelected] = useState(0)
   const trackRef = useRef<HTMLDivElement>(null)
+  const hasInteracted = useRef(false) // To track if the user has interacted with the component
+  const lastScrollRef = useRef(0)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   // Scroll au point sélectionné quand on change d’event
   useEffect(() => {
@@ -14,12 +17,43 @@ function TimelineSection() {
     }
   }, [selected])
 
-  // Support scroll molette
-  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
-    if (trackRef.current) {
-      e.preventDefault()
-      trackRef.current.scrollLeft += e.deltaY
+    // Bloque le scroll body pendant la navigation d’acteurs
+  useEffect(() => {
+    const shouldBlockScroll = selected > 0 && selected < timelineData.length - 1
+    if (shouldBlockScroll) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
     }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [selected])
+
+  // Center the component ONLY after a real user interaction
+  useEffect(() => {
+    if (hasInteracted.current) {
+      setTimeout(() => {
+        containerRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        })
+      }, 0)
+    }
+    // else we don't scroll into view on initial load
+  }, [selected])
+
+  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    hasInteracted.current = true // Launch interaction on first scroll
+    e.preventDefault()
+    e.stopPropagation()
+
+    const now = Date.now()
+    if (now - lastScrollRef.current < 300) return
+    lastScrollRef.current = now
+
+    if (e.deltaY > 0 && selected < timelineData.length - 1) setSelected(i => i + 1)
+    if (e.deltaY < 0 && selected > 0) setSelected(i => i - 1)
   }
 
   // Gère navigation clavier (optionnel)
@@ -64,7 +98,6 @@ function TimelineSection() {
         style={{
           display: 'flex',
           alignItems: 'center',
-          // gap: 100,
           justifyContent: "space-between",
           overflowX: 'auto',
           width: '90%',
