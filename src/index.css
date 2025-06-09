@@ -120,3 +120,21 @@ h3 {
   z-index: 2;
   pointer-events: none;
 }
+.introduction-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.introduction-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.introduction-description {
+  max-width: 600px;
+}
