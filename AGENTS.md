@@ -36,7 +36,7 @@ Do not attempt to bypass this requirement.
 
 ## Branch Naming Convention
 
-In addition to commit messages, branch names must also follow the following convention:
+In addition to commit messages, branch names also follow the following convention and should be written in **English**:
 
 ```
 <type>/<scope>-<short-description>
