@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import ScrollSection from './ScrollSection'
 
 const events = [
@@ -8,14 +9,35 @@ const events = [
 ]
 
 function Timeline() {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const items = containerRef.current?.querySelectorAll('.timeline-event')
+    if (!items) return
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible')
+        }
+      })
+    }, { threshold: 0.2 })
+
+    items.forEach(item => observer.observe(item))
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <ScrollSection className="timeline">
-      <div className="timeline-line" />
-      {events.map(event => (
-        <div key={event.date} className="timeline-item">
-          <strong>{event.date}</strong> {event.description}
-        </div>
-      ))}
+      <div ref={containerRef} className="timeline-container">
+        <div className="timeline-line" />
+        {events.map(event => (
+          <div key={event.date} className="timeline-event">
+            <div className="event-date">{event.date}</div>
+            <p className="event-description">{event.description}</p>
+          </div>
+        ))}
+      </div>
     </ScrollSection>
   )
 }
