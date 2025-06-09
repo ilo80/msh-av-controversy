@@ -6,8 +6,8 @@ import { ProgressBar } from './ProgressBar'
 const opinionColors: Record<string, string> = {
   'Farouchement opposés': '#e53e3e',
   'Plutôt défavorable': '#dd6b20',
-  Prudents: '#d69e2e',
-  Neutres: '#4a5568',
+  'Prudents': '#d69e2e',
+  'Neutres': '#4a5568',
   'Partisan convaincu': '#38a169',
 }
 
@@ -21,6 +21,9 @@ function ActorSection() {
 
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
     e.preventDefault()
+
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
     const now = Date.now()
     if (now - lastScrollRef.current < 300) return
     lastScrollRef.current = now
