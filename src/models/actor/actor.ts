@@ -4,4 +4,5 @@ export interface Actor {
   opinion: string
   engagement: number
   image: string
+  description: string
 }
