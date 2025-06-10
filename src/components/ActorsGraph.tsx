@@ -18,8 +18,24 @@ function ActorsGraph() {
   >
 
   const MAX_NODE_SIZE = 20; // Maximum node size
-
   const [selectedActor, setSelectedActor] = useState<Actor | null>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [dimensions, setDimensions] = useState({width: 0, height: 0})
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const resizeObserver = new ResizeObserver(entries => {
+      for (const entry of entries) {
+        const { width, height } = entry.contentRect;
+        setDimensions({ width, height });
+      }
+    });
+
+    resizeObserver.observe(container);
+    return () => resizeObserver.disconnect();
+  }, [])
 
   const drawNode = (
     node: NodeObject<Actor>,
@@ -85,19 +101,24 @@ function ActorsGraph() {
   }, []);
 
   return (
-    <div className="graph-container">
-      <ForceGraph2D<Actor, Link>
-        ref={fgRef}
-        graphData={actorGraphData}
-        nodeLabel={node => `${node.name} - ${node.opinion}`}
-        nodeCanvasObject={drawNode}
-        nodeRelSize={MAX_NODE_SIZE}
-        linkWidth={1}
-        minZoom={2}
-        maxZoom={4}
-        onNodeClick={node => setSelectedActor(node as Actor)}
-        onBackgroundClick={() => setSelectedActor(null)}
-      />
+    <div className="graph-container" ref={containerRef}>
+      <h1 className="graph-title">Cartographie Controverse</h1>
+      {dimensions.width > 0 && dimensions.height > 0 && (
+          <ForceGraph2D<Actor, Link>
+            ref={fgRef}
+            width={dimensions.width}
+            height={dimensions.height}
+            graphData={actorGraphData}
+            nodeLabel={node => `${node.name} - ${node.opinion}`}
+            nodeCanvasObject={drawNode}
+            nodeRelSize={MAX_NODE_SIZE}
+            linkWidth={1}
+            minZoom={2}
+            maxZoom={4}
+            onNodeClick={node => setSelectedActor(node as Actor)}
+            onBackgroundClick={() => setSelectedActor(null)}
+          />
+      )}
       <ActorSidebar actor={selectedActor} onClose={() => setSelectedActor(null)} />
     </div>
   )
