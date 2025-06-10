@@ -62,6 +62,7 @@ function ActorSection() {
 
   return (
     <div
+      id="actors"
       className="actor-section"
       onWheel={handleWheel}
       ref={containerRef}

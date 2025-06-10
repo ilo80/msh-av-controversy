@@ -68,7 +68,7 @@ function TimelineSection() {
 
   return (
     <section 
-      id='timeline-section'
+      id='timeline'
       className='timeline-section' 
       ref={containerRef}
       onWheel={handleWheel}
