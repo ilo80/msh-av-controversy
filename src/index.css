@@ -20,6 +20,7 @@ body {
   position: relative;
   height: 100vh;
   margin: 0 10rem;
+  display: flex;
   justify-content: center;
 }
 
