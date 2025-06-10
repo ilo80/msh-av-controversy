@@ -6,7 +6,6 @@ body {
 
 .container {
   text-align: center;
-  padding: 2rem;
 }
 
 .content-container {
@@ -32,14 +31,17 @@ body {
   left: 0;  
 }
 
+.graph-title {
+  padding: 5rem;
+}
+
 .force-graph-container {
-  margin-top: 2rem;
   box-shadow: 0 4px 24px rgba(0,0,0,0.10);
 }
 
 .sidebar {
   position: absolute;
-  top: 0;
+  /* top: 0; */
   right: 0;
   width: 350px;
   background: #fff;
@@ -49,6 +51,13 @@ body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  height: fit-content;
+}
+
+.graph-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .close-button {
@@ -138,11 +147,12 @@ h3 {
 }
 
 .actor-section {
+  background: linear-gradient(120deg, #e6fffa 70%, #b2f5ea 100%);
   display: flex;
   align-items: center;      /* Vertical center */
   justify-content: center;  /* Horizontal center */
   gap: 100px;               /* Space between image and card */
-  min-height: 70vh;
+  height: 100vh;
 }
 
 .actor-section-image {
@@ -196,6 +206,7 @@ h3 {
   align-items: center;
   height: 100vh;
   text-align: center;
+  background: linear-gradient(120deg, #e3f0ff 60%, #bee3f8 100%);
 }
 
 .introduction-title {
@@ -210,4 +221,69 @@ h3 {
 
 .timeline-event p {
   text-align: justify;
+}
+
+.timeline-section {
+  background: linear-gradient(120deg, #fff4e6 60%, #fed7aa 100%);
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar {
+  position: fixed;
+  top: 1rem; /* Espace en haut */
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem); /* ou max-width: 1200px; pour limiter la largeur */
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  z-index: 1000;
+  height: 4rem;
+}
+
+.navbar-title {
+  flex: 1;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+.navbar-links {
+  flex: 2;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-links li {
+  padding: 0 1rem;
+  display: flex;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  padding: 1rem;
+  color: #333;
+  display: flex;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar a:hover {
+  background: #f0f0f0;
 }

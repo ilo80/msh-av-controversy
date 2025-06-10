@@ -67,7 +67,11 @@ function TimelineSection() {
   }, [])
 
   return (
-    <section
+    <section 
+      id='timeline-section'
+      className='timeline-section' 
+      ref={containerRef}
+      onWheel={handleWheel}
       style={{
         width: '100%',
         minHeight: '480px',
@@ -93,7 +97,6 @@ function TimelineSection() {
       </div>
 
       <div
-        ref={trackRef}
         className="timeline-track"
         style={{
           display: 'flex',
@@ -106,7 +109,6 @@ function TimelineSection() {
           scrollbarWidth: 'none',
           msOverflowStyle: 'none'
         }}
-        onWheel={handleWheel}
         tabIndex={0}
       >
         {/* LIGNE */}

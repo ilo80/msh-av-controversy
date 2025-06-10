@@ -101,25 +101,27 @@ function ActorsGraph() {
   }, []);
 
   return (
-    <div className="graph-container" ref={containerRef}>
+    <div id='graph-container' className="graph-container" ref={containerRef}>
       <h1 className="graph-title">Cartographie Controverse</h1>
-      {dimensions.width > 0 && dimensions.height > 0 && (
-          <ForceGraph2D<Actor, Link>
-            ref={fgRef}
-            width={dimensions.width}
-            height={dimensions.height}
-            graphData={actorGraphData}
-            nodeLabel={node => `${node.name} - ${node.opinion}`}
-            nodeCanvasObject={drawNode}
-            nodeRelSize={MAX_NODE_SIZE}
-            linkWidth={1}
-            minZoom={2}
-            maxZoom={4}
-            onNodeClick={node => setSelectedActor(node as Actor)}
-            onBackgroundClick={() => setSelectedActor(null)}
-          />
-      )}
-      <ActorSidebar actor={selectedActor} onClose={() => setSelectedActor(null)} />
+      <div className="graph-content">
+        {dimensions.width > 0 && dimensions.height > 0 && (
+            <ForceGraph2D<Actor, Link>
+              ref={fgRef}
+              width={dimensions.width}
+              height={dimensions.height}
+              graphData={actorGraphData}
+              nodeLabel={node => `${node.name} - ${node.opinion}`}
+              nodeCanvasObject={drawNode}
+              nodeRelSize={MAX_NODE_SIZE}
+              linkWidth={1}
+              minZoom={2}
+              maxZoom={4}
+              onNodeClick={node => setSelectedActor(node as Actor)}
+              onBackgroundClick={() => setSelectedActor(null)}
+            />
+        )}
+        <ActorSidebar actor={selectedActor} onClose={() => setSelectedActor(null)} />
+      </div>
     </div>
   )
 }
