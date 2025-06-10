@@ -1,7 +1,7 @@
 
 function Navbar() {
   return (
-    <nav className="navbar">
+    <nav id="navbar" className="navbar">
       <h1 className="navbar-title">La fin de la route pour les humains ?</h1>
         <ul className="navbar-links">
             <li><a href="#introduction-container">Introduction</a></li>
