@@ -146,7 +146,7 @@ function TimelineSection() {
                 width: i === 0 ? 48 : 32,
                 height: i === 0 ? 48 : 32,
                 borderRadius: '50%',
-                background: selected === i ? selected === 0 ? "green" : "blue" : '#444',
+                background: selected === i ? selected === 0 ? "#1edf1e" : "blue" : '#444',
                 border: selected === i ? '4px solid #60a5fa' : '4px solid #181818',
                 display: 'flex',
                 alignItems: 'center',
