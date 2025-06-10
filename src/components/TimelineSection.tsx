@@ -67,7 +67,7 @@ function TimelineSection() {
   }, [])
 
   return (
-    <section
+    <section className='timeline-section'
       style={{
         width: '100%',
         minHeight: '480px',
