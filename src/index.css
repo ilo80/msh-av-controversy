@@ -37,13 +37,12 @@ body {
 }
 
 .force-graph-container {
-  margin-top: 2rem;
   box-shadow: 0 4px 24px rgba(0,0,0,0.10);
 }
 
 .sidebar {
   position: absolute;
-  top: 0;
+  /* top: 0; */
   right: 0;
   width: 350px;
   background: #fff;
@@ -53,6 +52,13 @@ body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  height: fit-content;
+}
+
+.graph-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .close-button {
