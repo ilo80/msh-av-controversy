@@ -32,6 +32,10 @@ body {
   left: 0;  
 }
 
+.graph-title {
+  padding: 5rem;
+}
+
 .force-graph-container {
   margin-top: 2rem;
   box-shadow: 0 4px 24px rgba(0,0,0,0.10);
