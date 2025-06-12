@@ -4,6 +4,7 @@ import ActorSection from './components/ActorSection'
 import IntroductionSection from './components/Introduction'
 import TimelineSection from './components/TimelineSection'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <ActorSection />
       <TimelineSection />
       <ActorsGraph />
+      <Footer />
     </div>
   )
 }
