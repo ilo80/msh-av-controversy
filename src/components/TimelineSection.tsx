@@ -6,6 +6,7 @@ function TimelineSection() {
   const trackRef = useRef<HTMLDivElement>(null)
   const hasInteracted = useRef(false) // To track if the user has interacted with the component
   const lastScrollRef = useRef(0)
+  const touchStartRef = useRef<number | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
 
   // Scroll au point sélectionné quand on change d’event
@@ -54,6 +55,21 @@ function TimelineSection() {
     if (e.deltaY < 0 && selected > 0) setSelected(i => i - 1)
   }
 
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchStartRef.current = e.touches[0].clientX
+  }
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartRef.current == null) return
+    const deltaX = touchStartRef.current - e.touches[0].clientX
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX > 0 && selected < timelineData.length - 1) setSelected(i => i + 1)
+      if (deltaX < 0 && selected > 0) setSelected(i => i - 1)
+      touchStartRef.current = null
+      hasInteracted.current = true
+    }
+  }
+
   // Gère navigation clavier (optionnel)
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -70,6 +86,8 @@ function TimelineSection() {
       className='timeline-section' 
       ref={containerRef}
       onWheel={handleWheel}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
       style={{
         width: '100%',
         minHeight: '480px',

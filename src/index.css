@@ -284,3 +284,48 @@ body {
   background: #f0f0f0;
   border-radius: 2rem;
 }
+
+@media (max-width: 768px) {
+  .actor-section {
+    flex-direction: column;
+    height: auto;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
+  .actor-section-image {
+    max-width: 70%;
+  }
+
+  .actor-section-info {
+    min-width: auto;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .graph-container {
+    margin: 0;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+  }
+
+  .graph-title {
+    padding: 2rem 0;
+  }
+}
