@@ -18,6 +18,8 @@ function ActorsGraph() {
   >
 
   const MAX_NODE_SIZE = 20; // Maximum node size
+  const TITLE_MARGIN_OFFSET = 20; // Offset for title height
+  
   const [selectedActor, setSelectedActor] = useState<Actor | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
