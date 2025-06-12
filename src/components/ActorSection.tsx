@@ -15,6 +15,7 @@ function ActorSection() {
   const actors = actorGraphData.nodes
   const [index, setIndex] = useState(0)
   const lastScrollRef = useRef(0)
+  const touchStartRef = useRef<number | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const hasInteracted = useRef(false) // To track if the user has interacted with the component
 
@@ -58,11 +59,28 @@ function ActorSection() {
     if (e.deltaY < 0 && index > 0) setIndex(i => i - 1)
   }
 
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchStartRef.current = e.touches[0].clientY
+  }
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartRef.current == null) return
+    const deltaY = touchStartRef.current - e.touches[0].clientY
+    if (Math.abs(deltaY) > 50) {
+      if (deltaY > 0 && index < actors.length - 1) setIndex(i => i + 1)
+      if (deltaY < 0 && index > 0) setIndex(i => i - 1)
+      touchStartRef.current = null
+      hasInteracted.current = true
+    }
+  }
+
   return (
     <div
       id="actors"
       className="actor-section"
       onWheel={handleWheel}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
       ref={containerRef}
       tabIndex={0}
       style={{ outline: 'none' }}
