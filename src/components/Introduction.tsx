@@ -1,6 +1,6 @@
 function Introduction() {
   return (
-    <section id="introduction-container" className="introduction-container">
+    <section id="introduction" className="introduction-container">
       <h1 className="introduction-title">
         VOITURES AUTONOMES :<br />LA FIN DE LA ROUTE POUR LES HUMAINS ?
       </h1>
