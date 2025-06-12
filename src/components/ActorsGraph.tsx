@@ -33,7 +33,7 @@ function ActorsGraph() {
     const resizeObserver = new ResizeObserver(entries => {
       for (const entry of entries) {
         const { width, height } = entry.contentRect;
-        setDimensions({ width, height: height - title.offsetHeight - 20 }); // Adjust height and margin to account for title
+        setDimensions({ width, height: height - title.offsetHeight - TITLE_MARGIN_OFFSET }); // Adjust height and margin to account for title
       }
     });
 
