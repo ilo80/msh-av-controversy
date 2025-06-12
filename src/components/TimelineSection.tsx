@@ -45,9 +45,7 @@ function TimelineSection() {
 
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
     hasInteracted.current = true // Launch interaction on first scroll
-    e.preventDefault()
-    e.stopPropagation()
-
+    
     const now = Date.now()
     if (now - lastScrollRef.current < 300) return
     lastScrollRef.current = now
@@ -68,7 +66,7 @@ function TimelineSection() {
 
   return (
     <section 
-      id='timeline-section'
+      id='timeline'
       className='timeline-section' 
       ref={containerRef}
       onWheel={handleWheel}
@@ -146,7 +144,7 @@ function TimelineSection() {
                 width: i === 0 ? 48 : 32,
                 height: i === 0 ? 48 : 32,
                 borderRadius: '50%',
-                background: selected === i ? selected === 0 ? "green" : "blue" : '#444',
+                background: selected === i ? selected === 0 ? "#1edf1e" : "blue" : '#444',
                 border: selected === i ? '4px solid #60a5fa' : '4px solid #181818',
                 display: 'flex',
                 alignItems: 'center',

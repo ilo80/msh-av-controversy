@@ -49,8 +49,6 @@ function ActorSection() {
 
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
     hasInteracted.current = true // Launch interaction on first scroll
-    e.preventDefault()
-    e.stopPropagation()
 
     const now = Date.now()
     if (now - lastScrollRef.current < 300) return
@@ -62,6 +60,7 @@ function ActorSection() {
 
   return (
     <div
+      id="actors"
       className="actor-section"
       onWheel={handleWheel}
       ref={containerRef}

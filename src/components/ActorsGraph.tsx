@@ -105,8 +105,9 @@ function ActorsGraph() {
   }, []);
 
   return (
-    <div id='graph-container' className="graph-container" ref={containerRef}>
+    <div id='graph' className="graph-container" ref={containerRef}>
       <h1 className="graph-title" ref={titleRef}>Cartographie Controverse</h1>
+      
       <div className="graph-content">
         {dimensions.width > 0 && dimensions.height > 0 && (
             <ForceGraph2D<Actor, Link>
