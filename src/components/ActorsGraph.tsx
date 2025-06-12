@@ -20,16 +20,20 @@ function ActorsGraph() {
   const MAX_NODE_SIZE = 20; // Maximum node size
   const [selectedActor, setSelectedActor] = useState<Actor | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
-  const [dimensions, setDimensions] = useState({width: 0, height: 0})
+  const titleRef = useRef<HTMLHeadingElement>(null)
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
+    const title = titleRef.current;
+    if (!title) return;
+
     const resizeObserver = new ResizeObserver(entries => {
       for (const entry of entries) {
         const { width, height } = entry.contentRect;
-        setDimensions({ width, height });
+        setDimensions({ width, height: height - title.offsetHeight - 20 }); // Adjust height and margin to account for title
       }
     });
 
@@ -102,7 +106,7 @@ function ActorsGraph() {
 
   return (
     <div id='graph-container' className="graph-container" ref={containerRef}>
-      <h1 className="graph-title">Cartographie Controverse</h1>
+      <h1 className="graph-title" ref={titleRef}>Cartographie Controverse</h1>
       <div className="graph-content">
         {dimensions.width > 0 && dimensions.height > 0 && (
             <ForceGraph2D<Actor, Link>
