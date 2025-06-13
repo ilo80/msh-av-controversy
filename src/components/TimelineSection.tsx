@@ -3,6 +3,7 @@ import timelineData from '../data/timelineData'
 
 function TimelineSection() {
   const [selected, setSelected] = useState(0)
+  const [lineWidth, setLineWidth] = useState(0)
   const trackRef = useRef<HTMLDivElement>(null)
   const hasInteracted = useRef(false) // To track if the user has interacted with the component
   const lastScrollRef = useRef(0)
@@ -78,6 +79,12 @@ function TimelineSection() {
     return () => window.removeEventListener('keydown', handler)
   }, [])
 
+  useEffect(() => {
+    if (!trackRef.current) return
+
+    setLineWidth(trackRef.current.scrollWidth);
+  }, [timelineData.length]);
+
   return (
     <section 
       id='timeline'
@@ -130,13 +137,14 @@ function TimelineSection() {
           style={{
             position: 'absolute',
             top: "50%",
-            left: 24,
-            right: 0,
+            left: 10,
             height: 4,
+            width: `${lineWidth}px`,
             background: '#3a3a3a',
             zIndex: 0,
           }}
         />
+
         {timelineData.map((event, i) => (
           <div
             key={event.id}
