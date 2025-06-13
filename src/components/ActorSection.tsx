@@ -47,6 +47,22 @@ function ActorSection() {
     // else we don't scroll into view on initial load
   }, [index])
 
+  // Scroll avec téléphone
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    hasInteracted.current = true // Launch interaction on first scroll
+
+    const now = Date.now()
+
+    if (now - lastScrollRef.current < 300) return
+    lastScrollRef.current = now
+
+    const touch = e.touches[0]
+    const deltaY = touch.clientY - (containerRef.current?.getBoundingClientRect().top ?? 0)
+    
+    if (deltaY > 0 && index < actors.length - 1) setIndex(i => i + 1)
+    if (deltaY < 0 && index > 0) setIndex(i => i - 1)
+  }
+
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
     hasInteracted.current = true // Launch interaction on first scroll
 
@@ -63,6 +79,7 @@ function ActorSection() {
       id="actors"
       className="actor-section"
       onWheel={handleWheel}
+      onTouchMove={handleTouchMove}
       ref={containerRef}
       tabIndex={0}
       style={{ outline: 'none' }}

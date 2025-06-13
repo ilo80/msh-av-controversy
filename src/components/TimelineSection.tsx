@@ -3,6 +3,7 @@ import timelineData from '../data/timelineData'
 
 function TimelineSection() {
   const [selected, setSelected] = useState(0)
+  const [lineWidth, setLineWidth] = useState(0)
   const trackRef = useRef<HTMLDivElement>(null)
   const hasInteracted = useRef(false) // To track if the user has interacted with the component
   const lastScrollRef = useRef(0)
@@ -54,6 +55,20 @@ function TimelineSection() {
     if (e.deltaY < 0 && selected > 0) setSelected(i => i - 1)
   }
 
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    hasInteracted.current = true // Launch interaction on first scroll
+
+    const now = Date.now()
+    if (now - lastScrollRef.current < 300) return
+
+    lastScrollRef.current = now
+    const touch = e.touches[0]
+    const deltaX = touch.clientX - (containerRef.current?.getBoundingClientRect().left ?? 0)
+
+    if (deltaX > 0 && selected < timelineData.length - 1) setSelected(i => i + 1)
+    if (deltaX < 0 && selected > 0) setSelected(i => i - 1)
+  }
+
   // Gère navigation clavier (optionnel)
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -64,12 +79,19 @@ function TimelineSection() {
     return () => window.removeEventListener('keydown', handler)
   }, [])
 
+  useEffect(() => {
+    if (!trackRef.current) return
+
+    setLineWidth(trackRef.current.scrollWidth);
+  }, [timelineData.length]);
+
   return (
     <section 
       id='timeline'
       className='timeline-section' 
       ref={containerRef}
       onWheel={handleWheel}
+      onTouchMove={handleTouchMove}
       style={{
         width: '100%',
         minHeight: '480px',
@@ -96,6 +118,7 @@ function TimelineSection() {
 
       <div
         className="timeline-track"
+        ref={trackRef}
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -114,13 +137,14 @@ function TimelineSection() {
           style={{
             position: 'absolute',
             top: "50%",
-            left: 24,
-            right: 0,
+            left: 10,
             height: 4,
+            width: `${lineWidth}px`,
             background: '#3a3a3a',
             zIndex: 0,
           }}
         />
+
         {timelineData.map((event, i) => (
           <div
             key={event.id}
