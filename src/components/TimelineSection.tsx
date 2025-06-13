@@ -111,6 +111,7 @@ function TimelineSection() {
 
       <div
         className="timeline-track"
+        ref={trackRef}
         style={{
           display: 'flex',
           alignItems: 'center',
