@@ -54,6 +54,20 @@ function TimelineSection() {
     if (e.deltaY < 0 && selected > 0) setSelected(i => i - 1)
   }
 
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    hasInteracted.current = true // Launch interaction on first scroll
+
+    const now = Date.now()
+    if (now - lastScrollRef.current < 300) return
+
+    lastScrollRef.current = now
+    const touch = e.touches[0]
+    const deltaX = touch.clientX - (containerRef.current?.getBoundingClientRect().left ?? 0)
+
+    if (deltaX > 0 && selected < timelineData.length - 1) setSelected(i => i + 1)
+    if (deltaX < 0 && selected > 0) setSelected(i => i - 1)
+  }
+
   // Gère navigation clavier (optionnel)
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -70,6 +84,7 @@ function TimelineSection() {
       className='timeline-section' 
       ref={containerRef}
       onWheel={handleWheel}
+      onTouchMove={handleTouchMove}
       style={{
         width: '100%',
         minHeight: '480px',
