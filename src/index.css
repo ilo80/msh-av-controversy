@@ -287,3 +287,35 @@ body {
 footer {
   margin-top: 2rem;
 }
+
+@media  (max-width: 768px) {
+  .graph-container {
+    margin: 0 2rem;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    top: auto;
+    height: auto;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .force-graph-canvas {
+    height: calc(100vh - 200px); /* Adjust height for mobile */
+  }
+
+  .actor-section {
+    flex-direction: column; /* Stack image and info vertically */
+    align-items: center; /* Center content */
+  }
+
+  .actor-section-image {
+    max-width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+}
