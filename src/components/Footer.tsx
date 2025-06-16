@@ -15,7 +15,6 @@ function Footer() {
           maxWidth: 1200,
           margin: '0 auto',
           display: 'flex',
-          // justifyContent: 'space-between',
           justifyContent: 'center',
           alignItems: 'center',
           flexWrap: 'wrap',
