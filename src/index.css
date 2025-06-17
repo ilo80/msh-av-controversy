@@ -359,7 +359,8 @@ footer {
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  height: 100vh;
+  min-height: 100vh;
+  height: fit-content;
   background: linear-gradient(120deg, #fff5f7 60%, #fed7e2 100%);
 }
 
