@@ -149,11 +149,9 @@ body {
 }
 
 .actor-section-image {
-  object-fit: cover;
   border-radius: 1rem;
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  max-width: 300px;
-  object-fit: contain;
+  width: 22vw;
 }
 
 .actor-section-info {
@@ -393,8 +391,8 @@ footer {
   }
 
   .actor-section-image {
-    max-width: 100%; /* Make image responsive */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 30vw /* Make image responsive */
+    height: 30%; /* Maintain aspect ratio */
   }
   
 }
