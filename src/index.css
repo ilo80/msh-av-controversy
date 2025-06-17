@@ -285,9 +285,9 @@ body {
 
 footer {
   margin-top: 2rem;
-  padding: 3rem 1rem,
-  background: #f9f9f9,
-  border-top: 1px solid #eaeaea,
+  padding: 3rem 1rem;
+  background: #f9f9f9;
+  border-top: 1px solid #eaeaea;
 }
 
 .footer-wrapper {
@@ -305,7 +305,7 @@ footer {
   min-width: 280px;
 }
 
-.footer .esiee-logo {
+.esiee-logo {
   height: 48px;
 }
 
