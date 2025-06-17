@@ -322,15 +322,16 @@ body {
 }
 
 .mobile-navbar li {
-  width: 100%;
+  /* width: 100%; */
   text-align: center;
   margin-bottom: 1rem;
 }
 
 .mobile-navbar a {
   text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
 }
-
 
 footer {
   margin-top: 2rem;

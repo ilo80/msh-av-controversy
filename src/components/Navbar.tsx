@@ -16,7 +16,7 @@ function Navbar() {
     if (!targetElement) return;
 
     toggleHamburger();
-    
+
     targetElement.scrollIntoView({ behavior: "smooth" });
     document.body.style.overflow = ""; // Reset overflow to default
   }
@@ -54,7 +54,7 @@ function Navbar() {
       {/* <h1 className="navbar-title">La revue du savoir</h1> */}
       <img src={logo} alt="Logo" style={{ width: '100px' }} />
       { displayHamburger && (
-        <div className="navbar-hamburger">
+        <div className="hamburger-navbar">
           <Hamburger
             toggled={hamburgerOpen}
             toggle={toggleHamburger}
