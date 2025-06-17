@@ -45,6 +45,7 @@ export default function StatisticsSection() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
+            alignItems: 'center',
           }}>
             {renderPieChart(value, 100 - value)}
             <p style={{ fontWeight: 'bold', fontSize: '1.25rem', marginTop: '8px' }}>{stat.value}%</p>
