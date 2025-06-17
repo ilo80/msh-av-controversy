@@ -1,6 +1,11 @@
+import { useState, useEffect } from "react";
+import Hamburger from "hamburger-react";
 import logo from "../assets/logo/logo.svg"
 
 function Navbar() {
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const [displayHamburger, setDisplayHamburger] = useState(false);
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
@@ -14,10 +19,48 @@ function Navbar() {
     document.body.style.overflow = ""; // Reset overflow to default
   }
 
+  const toggleHamburger = () => {
+    setHamburgerOpen(!hamburgerOpen);
+    setDisplayHamburger(!displayHamburger);
+    document.body.style.overflow = hamburgerOpen ? "" : "hidden"; // Prevent scrolling when menu is open
+  };
+
+  useEffect(() => {
+    // Check initial window width
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const handleResize = () => {
+    if (window.innerWidth > 768) {
+      setDisplayHamburger(false);
+    } else {
+      setDisplayHamburger(true);
+    }
+  };
+
   return (
     <nav id="navbar" className="navbar">
       {/* <h1 className="navbar-title">La revue du savoir</h1> */}
       <img src={logo} alt="Logo" style={{ width: '100px' }} />
+      { displayHamburger && (
+        <div className="navbar-hamburger">
+          <Hamburger
+            toggled={hamburgerOpen}
+            toggle={toggleHamburger}
+            size={30}
+            color="#000"
+          />
+        </div>
+      )}
+
       <ul className="navbar-links">
           <li><a href="#introduction" onClick={handleClick}>Introduction</a></li>
           <li><a href="#actors" onClick={handleClick}>Acteurs</a></li>
