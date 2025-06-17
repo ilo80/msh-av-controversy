@@ -205,7 +205,14 @@ body {
 }
 
 .introduction-description {
-  max-width: 600px;
+  max-width: 900px;
+}
+
+@media (max-width: 768px) {
+  .introduction-container {
+      padding: 0 2rem;
+  }
+  
 }
 
 .timeline-event p {
