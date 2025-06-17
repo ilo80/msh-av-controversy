@@ -144,17 +144,14 @@ body {
   background: linear-gradient(120deg, #e6fffa 70%, #b2f5ea 100%);
   display: flex;
   align-items: center;      /* Vertical center */
-  justify-content: center;  /* Horizontal center */
-  gap: 100px;               /* Space between image and card */
+  justify-content: space-around;  /* Horizontal center + auto spacing */
   height: 100vh;
 }
 
 .actor-section-image {
-  object-fit: cover;
   border-radius: 1rem;
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  max-width: 300px;
-  object-fit: contain;
+  width: 22vw;
 }
 
 .actor-section-info {
@@ -162,9 +159,8 @@ body {
   border-radius: 1.2rem;
   box-shadow: 0 4px 24px rgba(0,0,0,0.10);
   padding: 2rem 2.5rem;
-  min-width: 350px;
-  max-width: 600px;
-  flex: 1;
+  width: 50vw;
+  height: 70%;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
@@ -384,12 +380,19 @@ footer {
 
   .actor-section {
     flex-direction: column; /* Stack image and info vertically */
+    gap: 30px;
     align-items: center; /* Center content */
+    height:auto;
+    padding: 40px 0;
+  }
+
+  .actor-section-info {
+    width: 80vw;
   }
 
   .actor-section-image {
-    max-width: 100%; /* Make image responsive */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 30vw; /* Make image responsive */
+    height: 30%; /* Maintain aspect ratio */
   }
   
 }
