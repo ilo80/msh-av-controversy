@@ -353,6 +353,21 @@ footer {
   height: 48px;
 }
 
+.statistics-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  height: 100vh;
+  background: linear-gradient(120deg, #fff5f7 60%, #fed7e2 100%);
+}
+
+.statistics-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
 @media  (max-width: 768px) {
   .graph-container {
     margin: 0 2rem;

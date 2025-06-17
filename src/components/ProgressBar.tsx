@@ -5,7 +5,7 @@ export function ProgressBar({ value, text }: ProgressBarProps) {
 
   return (
     <div className="progress-bar-container">
-      <div
+      <span
         className="progress-bar-fill"
         style={{
           clipPath: `inset(0 ${100 - safeValue * 100}% 0 0)`,
