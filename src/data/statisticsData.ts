@@ -40,7 +40,7 @@ const statisticsData: Statistic[] = [
     {
         id: 'us-opposition',
         value: '68',
-        description: 'des Américains qui se disent opposés aux voitures autonomes en 2023',
+        description: 'part des Américains qui se disent opposés aux voitures autonomes en 2023',
         type: 'percentage'
     }
 ];
