@@ -94,10 +94,6 @@ body {
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
-.actor-section-info h3 {
-  margin-bottom: auto;
-}
-
 .arguments-list {
   list-style: square;
   padding: 0 1rem;
@@ -314,7 +310,6 @@ body {
   justify-content: center;
   flex-direction: column;
   height: 100vh;
-  width: 100%;
   margin: 0;
   padding: 2rem;
   list-style: none;
