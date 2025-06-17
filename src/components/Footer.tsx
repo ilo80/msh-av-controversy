@@ -3,7 +3,7 @@ import logoESIEE from '../assets/logo/logo-esiee.svg'
 function Footer() {
   return (
     <footer>
-      <div class="footer-wrapper">
+      <div className="footer-wrapper">
         <div>
           <p style={{ margin: 0, lineHeight: 1.5 }}>
             &copy; {new Date().getFullYear()} La revue du savoir. <br />
@@ -25,7 +25,7 @@ function Footer() {
           </p>
         </div>
         <div>
-          <img class="esiee-logo"
+          <img className="esiee-logo"
             src={logoESIEE}
             alt="Logo ESIEE Paris"
           />
