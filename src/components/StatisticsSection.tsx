@@ -5,8 +5,8 @@ import type { Statistic } from '../models/statistic/statistic';
 export default function StatisticsSection() {
   const getRandomColor = () => {
     const hue = Math.floor(Math.random() * 360);
-    const saturation = Math.floor(Math.random() * 30) + 70; // 70-100% saturation
-    const lightness = Math.floor(Math.random() * 20) + 40; // 40-60% lightness
+    const saturation = Math.floor(Math.random() * 30) + 70;
+    const lightness = Math.floor(Math.random() * 20) + 40;
     return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
   };
 
@@ -35,20 +35,10 @@ export default function StatisticsSection() {
       case 'percentage': {
         const value = parseFloat(stat.value);
         return (
-          <div key={stat.id} style={{
-            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-            borderRadius: '12px',
-            padding: '16px',
-            textAlign: 'center',
-            backgroundColor: '#ffffff',
-            margin: '12px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-          }}>
+          <div key={stat.id} className="statistic-card">
             {renderPieChart(value, 100 - value)}
-            <p style={{ fontWeight: 'bold', fontSize: '1.25rem', marginTop: '8px' }}>{stat.value}%</p>
-            <p style={{ fontSize: '0.875rem', color: '#555' }}>{stat.description}</p>
+            <p className="statistic-percentage">{stat.value}%</p>
+            <p className="statistic-description">{stat.description}</p>
           </div>
         );
       }
@@ -57,56 +47,31 @@ export default function StatisticsSection() {
         const [minValue, maxValue] = stat.value.split('-').map(Number);
         const averageValue = (minValue + maxValue) / 2;
         return (
-          <div key={stat.id} style={{
-            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-            borderRadius: '12px',
-            padding: '16px',
-            textAlign: 'center',
-            backgroundColor: '#ffffff',
-            margin: '12px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-          }}>
+          <div key={stat.id} className="statistic-card">
             {renderPieChart(averageValue, 100 - averageValue)}
-            <p style={{ fontWeight: 'bold', fontSize: '1.25rem', marginTop: '8px' }}>
+            <p className="statistic-percentage">
               {minValue}% - {maxValue}%
             </p>
-            <p style={{ fontSize: '0.875rem', color: '#555' }}>{stat.description}</p>
+            <p className="statistic-description">{stat.description}</p>
           </div>
         );
       }
+
       default:
         return (
-          <div key={stat.id} style={{
-            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-            borderRadius: '12px',
-            padding: '16px',
-            textAlign: 'center',
-            backgroundColor: '#ffffff',
-            margin: '12px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-          }}>
-            <p style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>{stat.value}</p>
-            <p style={{ fontSize: '0.875rem', color: '#555' }}>{stat.description}</p>
+          <div key={stat.id} className="statistic-card">
+            <p className="statistic-value">{stat.value}</p>
+            <p className="statistic-description">{stat.description}</p>
           </div>
         );
     }
   };
 
   return (
-    <section className='statistics-section' id="statistics" style={{ padding: '32px 16px', backgroundColor: '#f5f5f5' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <h2 style={{ textAlign: 'center', fontSize: '2rem', marginBottom: '32px', color: '#333' }}>
-          Chiffres clés sur les voitures autonomes
-        </h2>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-          gap: '24px',
-        }}>
+    <section className="statistics-section" id="statistics">
+      <div className="statistics-section-container">
+        <h2 className="statistics-title">Chiffres clés sur les voitures autonomes</h2>
+        <div className="statistics-grid">
           {statisticsData.map(renderStatistic)}
         </div>
       </div>
