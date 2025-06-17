@@ -70,6 +70,7 @@ function Navbar() {
           <li><a href="#introduction" onClick={handleClick}>Introduction</a></li>
           <li><a href="#actors" onClick={handleClick}>Acteurs</a></li>
           <li><a href="#timeline" onClick={handleClick}>Chronologie</a></li>
+          <li><a href="#statistics" onClick={handleClick}>Statistiques</a></li>
           <li><a href="#graph" onClick={handleClick}>Cartographie</a></li>
         </ul>
       )}
@@ -80,6 +81,7 @@ function Navbar() {
             <li><a href="#introduction" onClick={handleClick}>Introduction</a></li>
             <li><a href="#actors" onClick={handleClick}>Acteurs</a></li>
             <li><a href="#timeline" onClick={handleClick}>Chronologie</a></li>
+            <li><a href="#statistics" onClick={handleClick}>Statistiques</a></li>
             <li><a href="#graph" onClick={handleClick}>Cartographie</a></li>
           </ul>
         </div>

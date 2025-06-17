@@ -49,7 +49,7 @@ export default function StatisticsSection() {
           </div>
         );
       }
-      
+
       case 'range': {
         const [minValue, maxValue] = stat.value.split('-').map(Number);
         const averageValue = (minValue + maxValue) / 2;
@@ -88,7 +88,7 @@ export default function StatisticsSection() {
   };
 
   return (
-    <section className='statistics-section' style={{ padding: '32px 16px', backgroundColor: '#f5f5f5' }}>
+    <section className='statistics-section' id="statistics" style={{ padding: '32px 16px', backgroundColor: '#f5f5f5' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <h2 style={{ textAlign: 'center', fontSize: '2rem', marginBottom: '32px', color: '#333' }}>
           Chiffres clés sur les voitures autonomes
