@@ -41,9 +41,10 @@ body {
 
 .sidebar {
   position: absolute;
-  /* top: 0; */
+  top: 0;
   right: 0;
   width: 350px;
+  height: 100%;
   background: #fff;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
   padding: 1rem;
@@ -51,12 +52,12 @@ body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  height: inherit;
 }
 
 .graph-content {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .close-button {
@@ -68,8 +69,7 @@ body {
 }
 
 .sidebar-image {
-  width: 100%;
-  height: auto;
+  height: 40%;
   margin-bottom: 1rem;
 }
 
@@ -365,13 +365,6 @@ footer {
 
   .sidebar {
     width: 100%;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    top: auto;
-    height: auto;
-    box-shadow: none;
-    border-radius: 0;
   }
 
   .force-graph-canvas {
