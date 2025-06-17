@@ -391,7 +391,7 @@ footer {
   }
 
   .actor-section-image {
-    max-width: 30vw /* Make image responsive */
+    max-width: 30vw; /* Make image responsive */
     height: 30%; /* Maintain aspect ratio */
   }
   
