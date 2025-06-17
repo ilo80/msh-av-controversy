@@ -15,6 +15,8 @@ function Navbar() {
     const targetElement = document.querySelector(targetId);
     if (!targetElement) return;
 
+    toggleHamburger();
+    
     targetElement.scrollIntoView({ behavior: "smooth" });
     document.body.style.overflow = ""; // Reset overflow to default
   }
@@ -41,6 +43,7 @@ function Navbar() {
   const handleResize = () => {
     if (window.innerWidth > 768) {
       setDisplayHamburger(false);
+      // setHamburgerOpen(false);
     } else {
       setDisplayHamburger(true);
     }
@@ -61,12 +64,26 @@ function Navbar() {
         </div>
       )}
 
-      <ul className="navbar-links">
+      { !displayHamburger && (
+        <ul className="navbar-links">
           <li><a href="#introduction" onClick={handleClick}>Introduction</a></li>
           <li><a href="#actors" onClick={handleClick}>Acteurs</a></li>
           <li><a href="#timeline" onClick={handleClick}>Chronologie</a></li>
           <li><a href="#graph" onClick={handleClick}>Cartographie</a></li>
-      </ul>
+        </ul>
+      )}
+
+      { hamburgerOpen && (
+        <div className="mobile-menu">
+          <ul className="mobile-navbar">
+            <li><a href="#introduction" onClick={handleClick}>Introduction</a></li>
+            <li><a href="#actors" onClick={handleClick}>Acteurs</a></li>
+            <li><a href="#timeline" onClick={handleClick}>Chronologie</a></li>
+            <li><a href="#graph" onClick={handleClick}>Cartographie</a></li>
+          </ul>
+        </div>
+      )}
+
     </nav>
   )
 }
