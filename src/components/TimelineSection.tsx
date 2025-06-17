@@ -8,6 +8,7 @@ function TimelineSection() {
   const hasInteracted = useRef(false) // To track if the user has interacted with the component
   const lastScrollRef = useRef(0)
   const containerRef = useRef<HTMLDivElement>(null)
+  const touchStartRef = useRef<{ x: number, y: number } | null>(null)
 
   // Scroll au point sélectionné quand on change d’event
   useEffect(() => {
@@ -55,18 +56,34 @@ function TimelineSection() {
     if (e.deltaY < 0 && selected > 0) setSelected(i => i - 1)
   }
 
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     hasInteracted.current = true // Launch interaction on first scroll
 
+    touchStartRef.current = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY
+    }
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
     const now = Date.now()
     if (now - lastScrollRef.current < 300) return
 
     lastScrollRef.current = now
-    const touch = e.touches[0]
-    const deltaX = touch.clientX - (containerRef.current?.getBoundingClientRect().left ?? 0)
+    const touch = e.changedTouches[0]
 
-    if (deltaX > 0 && selected < timelineData.length - 1) setSelected(i => i + 1)
-    if (deltaX < 0 && selected > 0) setSelected(i => i - 1)
+    const deltaX = touch.clientX - (touchStartRef.current?.x ?? 0)
+    const deltaY = touch.clientY - (touchStartRef.current?.y ?? 0)
+
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX > 0 && selected < timelineData.length - 1) setSelected(i => i + 1)
+      if (deltaX < 0 && selected > 0) setSelected(i => i - 1)
+    } else {
+      if (deltaY > 0 && selected < timelineData.length - 1) setSelected(i => i + 1)
+      if (deltaY < 0 && selected > 0) setSelected(i => i - 1)
+    }
+
+    touchStartRef.current = null; // Reset touch start
   }
 
   // Gère navigation clavier (optionnel)
@@ -91,7 +108,8 @@ function TimelineSection() {
       className='timeline-section' 
       ref={containerRef}
       onWheel={handleWheel}
-      onTouchMove={handleTouchMove}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       style={{
         width: '100%',
         minHeight: '480px',
