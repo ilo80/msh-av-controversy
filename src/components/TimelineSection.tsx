@@ -4,6 +4,7 @@ import timelineData from '../data/timelineData'
 function TimelineSection() {
   const [selected, setSelected] = useState(0)
   const [lineWidth, setLineWidth] = useState(0)
+  
   const trackRef = useRef<HTMLDivElement>(null)
   const hasInteracted = useRef(false) // To track if the user has interacted with the component
   const lastScrollRef = useRef(0)
@@ -79,8 +80,8 @@ function TimelineSection() {
       if (deltaX > 0 && selected < timelineData.length - 1) setSelected(i => i + 1)
       if (deltaX < 0 && selected > 0) setSelected(i => i - 1)
     } else {
-      if (deltaY > 0 && selected < timelineData.length - 1) setSelected(i => i + 1)
-      if (deltaY < 0 && selected > 0) setSelected(i => i - 1)
+      if (deltaY < 0 && selected < timelineData.length - 1) setSelected(i => i + 1)
+      if (deltaY > 0 && selected > 0) setSelected(i => i - 1)
     }
 
     touchStartRef.current = null; // Reset touch start
