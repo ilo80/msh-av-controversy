@@ -292,7 +292,7 @@ footer {
 }
 
 .footer-wrapper {
-  max-width: 1200;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -303,7 +303,7 @@ footer {
 
 .footer-wrapper > div {
   flex: 1;
-  min-width: 280;
+  min-width: 280px;
 }
 
 .footer > .esiee-logo {
