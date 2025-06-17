@@ -307,6 +307,10 @@ body {
   animation: slideIn 0.3s ease forwards;
 }
 
+.burger-navbar {
+  z-index: 2000;
+}
+
 .mobile-navbar {
   display: flex;
   flex: 2;

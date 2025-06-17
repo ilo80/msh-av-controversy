@@ -23,7 +23,6 @@ function Navbar() {
 
   const toggleHamburger = () => {
     setHamburgerOpen(!hamburgerOpen);
-    setDisplayHamburger(!displayHamburger);
     document.body.style.overflow = hamburgerOpen ? "" : "hidden"; // Prevent scrolling when menu is open
   };
 
@@ -54,7 +53,7 @@ function Navbar() {
       {/* <h1 className="navbar-title">La revue du savoir</h1> */}
       <img src={logo} alt="Logo" style={{ width: '100px' }} />
       { displayHamburger && (
-        <div className="hamburger-navbar">
+        <div className="burger-navbar">
           <Hamburger
             toggled={hamburgerOpen}
             toggle={toggleHamburger}
