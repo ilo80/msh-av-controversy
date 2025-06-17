@@ -286,28 +286,28 @@ body {
 
 footer {
   margin-top: 2rem;
-  padding: '3rem 1rem',
-  background: '#f9f9f9',
-  borderTop: '1px solid #eaeaea',
+  padding: 3rem 1rem,
+  background: #f9f9f9,
+  border-top: 1px solid #eaeaea,
 }
 
 .footer-wrapper {
-  maxWidth: 1200,
-  margin: '0 auto',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  flexWrap: 'wrap',
-  gap: '1.5rem',
+  max-width: 1200;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
 .footer-wrapper > div {
-  flex: 1
-  minWidth: 280
+  flex: 1;
+  min-width: 280;
 }
 
 .footer > .esiee-logo {
-  height: 48
+  height: 48px;
 }
 
 @media  (max-width: 768px) {
