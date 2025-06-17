@@ -42,6 +42,9 @@ export default function StatisticsSection() {
             textAlign: 'center',
             backgroundColor: '#ffffff',
             margin: '12px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
           }}>
             {renderPieChart(value, 100 - value)}
             <p style={{ fontWeight: 'bold', fontSize: '1.25rem', marginTop: '8px' }}>{stat.value}%</p>
@@ -61,6 +64,9 @@ export default function StatisticsSection() {
             textAlign: 'center',
             backgroundColor: '#ffffff',
             margin: '12px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
           }}>
             {renderPieChart(averageValue, 100 - averageValue)}
             <p style={{ fontWeight: 'bold', fontSize: '1.25rem', marginTop: '8px' }}>
@@ -79,6 +85,9 @@ export default function StatisticsSection() {
             textAlign: 'center',
             backgroundColor: '#ffffff',
             margin: '12px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
           }}>
             <p style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>{stat.value}</p>
             <p style={{ fontSize: '0.875rem', color: '#555' }}>{stat.description}</p>
