@@ -14,12 +14,15 @@ const opinionColors: Record<string, string> = {
 function ActorSection() {
   const actors = actorGraphData.nodes
   const [index, setIndex] = useState(0)
+
   const lastScrollRef = useRef(0)
   const containerRef = useRef<HTMLDivElement>(null)
   const hasInteracted = useRef(false) // To track if the user has interacted with the component
+  const touchStartYRef = useRef<number | null>(null)
 
   const actor = actors[index] as Actor
   const opinionColor = opinionColors[actor.opinion] ?? '#718096'
+
 
   // Bloque le scroll body pendant la navigation d’acteurs
   useEffect(() => {
@@ -48,7 +51,13 @@ function ActorSection() {
   }, [index])
 
   // Scroll avec téléphone
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    hasInteracted.current = true // Launch interaction on first scroll
+
+    touchStartYRef.current = e.touches[0].clientY
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
     hasInteracted.current = true // Launch interaction on first scroll
 
     const now = Date.now()
@@ -56,9 +65,9 @@ function ActorSection() {
     if (now - lastScrollRef.current < 300) return
     lastScrollRef.current = now
 
-    const touch = e.touches[0]
-    const deltaY = touch.clientY - (containerRef.current?.getBoundingClientRect().top ?? 0)
-    
+    const touch = e.changedTouches[0]
+    const deltaY = touch.clientY - (touchStartYRef.current ?? 0)
+
     if (deltaY > 0 && index < actors.length - 1) setIndex(i => i + 1)
     if (deltaY < 0 && index > 0) setIndex(i => i - 1)
   }
@@ -79,7 +88,8 @@ function ActorSection() {
       id="actors"
       className="actor-section"
       onWheel={handleWheel}
-      onTouchMove={handleTouchMove}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       ref={containerRef}
       tabIndex={0}
       style={{ outline: 'none' }}
