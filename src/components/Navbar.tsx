@@ -15,7 +15,9 @@ function Navbar() {
     const targetElement = document.querySelector(targetId);
     if (!targetElement) return;
 
-    toggleHamburger();
+    // Close the hamburger menu if it's open
+    if (hamburgerOpen)
+      toggleHamburger();
 
     targetElement.scrollIntoView({ behavior: "smooth" });
     document.body.style.overflow = ""; // Reset overflow to default
