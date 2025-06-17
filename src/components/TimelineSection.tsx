@@ -4,10 +4,12 @@ import timelineData from '../data/timelineData'
 function TimelineSection() {
   const [selected, setSelected] = useState(0)
   const [lineWidth, setLineWidth] = useState(0)
+
   const trackRef = useRef<HTMLDivElement>(null)
   const hasInteracted = useRef(false) // To track if the user has interacted with the component
   const lastScrollRef = useRef(0)
   const containerRef = useRef<HTMLDivElement>(null)
+  const touchStartXRef = useRef<number | null>(null)
 
   // Scroll au point sélectionné quand on change d’event
   useEffect(() => {
@@ -55,20 +57,31 @@ function TimelineSection() {
     if (e.deltaY < 0 && selected > 0) setSelected(i => i - 1)
   }
 
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchStartXRef.current = e.touches[0].clientX
+  }
+
   const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-    hasInteracted.current = true // Launch interaction on first scroll
+    hasInteracted.current = true
 
     const now = Date.now()
     if (now - lastScrollRef.current < 300) return
-
     lastScrollRef.current = now
-    const touch = e.touches[0]
-    const deltaX = touch.clientX - (containerRef.current?.getBoundingClientRect().left ?? 0)
 
-    if (deltaX > 0 && selected < timelineData.length - 1) setSelected(i => i + 1)
-    if (deltaX < 0 && selected > 0) setSelected(i => i - 1)
+    const currentX = e.touches[0].clientX
+    const startX = touchStartXRef.current
+    if (startX === null) return
+
+    const deltaX = currentX - startX
+
+    if (deltaX > 30 && selected > 0) {
+      setSelected(i => i - 1)
+      touchStartXRef.current = currentX // reset pour éviter double scroll
+    } else if (deltaX < -30 && selected < timelineData.length - 1) {
+      setSelected(i => i + 1)
+      touchStartXRef.current = currentX
+    }
   }
-
   // Gère navigation clavier (optionnel)
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -91,6 +104,7 @@ function TimelineSection() {
       className='timeline-section' 
       ref={containerRef}
       onWheel={handleWheel}
+      onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       style={{
         width: '100%',
