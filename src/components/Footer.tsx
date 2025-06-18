@@ -47,6 +47,7 @@ function Footer() {
             <li>
               <HashLink
                 to="/sources"
+                smooth
               >
                 📚 Voir les sources
               </HashLink>
