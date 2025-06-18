@@ -46,7 +46,7 @@ function Navbar() {
   return (
     <nav id="navbar" className="navbar">
       {/* <h1 className="navbar-title">La revue du savoir</h1> */}
-      <img src={logo} alt="Logo" style={{ width: '100px' }} />
+      <img src={logo} alt="Logo" style={{ width: '75px' }} />
       { displayHamburger && (
         <div className="burger-navbar">
           <Hamburger
