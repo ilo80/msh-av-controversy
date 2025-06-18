@@ -52,7 +52,7 @@ const sourcesData: Source[] = [
     id: 'deux_tiers_des_francais_nont_pas_confiance_vehicules_autonomes',
     title: 'Deux tiers des Français n’ont pas confiance dans les véhicules autonomes.',
     date: '21 novembre 2023',
-    organization: 'Clubic.Com',
+    organization: 'Clubic',
     url: 'https://www.clubic.com/actualite-509686-des-francais-n-ont-pas-confiance-dans-les-vehicules-autonomes.html',
     type: 'article'
   },

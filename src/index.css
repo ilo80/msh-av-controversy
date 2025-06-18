@@ -421,6 +421,46 @@ footer {
   color: #555;
 }
 
+.source-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.source-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.05);
+}
+
+.source-card p {
+  text-align: justify;
+}
+
+.source-link {
+  color: #3182ce;
+  text-decoration: none;
+}
+
+.source-content {
+  display: flex;
+  text-align: justify;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: auto;
+  padding: 1rem;
+}
+
+.source-card h3 {
+  font-size: 1.25rem;
+  color: #2d3748;
+}
 
 @media  (max-width: 768px) {
   .graph-container {
