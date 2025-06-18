@@ -372,14 +372,11 @@ a {
 }
 
 .footer-links {
-  margin-top: 1rem;
   list-style: none;
-  padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
   text-align: justify;
-  margin-top: revert;
 }
 
 .esiee-logo {
