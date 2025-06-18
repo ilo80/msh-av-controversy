@@ -264,13 +264,25 @@ body {
   justify-content: space-between;
   padding: 0.5rem 2rem;
   z-index: 1000;
-  height: 4rem;
+  height: 3rem;
+}
+
+.navbar img {
+  width: 70px;
 }
 
 @media (max-width: 768px) {
   .navbar {
-    top: 0;
-    width: 100%;
+    top: 1rem;
+    left: unset;
+    transform: unset;
+    right: 1rem;
+    width: fit-content;
+    padding: 10px;
+  }
+
+  .navbar img {
+    display: none;
   }
 }
 
@@ -316,8 +328,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100vh;
+  height: 154vh;
+  width: 162vw;
   background-color: white;
   box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
   /* padding: 2rem; */
@@ -326,6 +338,8 @@ body {
   flex-direction: column;
   gap: 1.5rem;
   animation: slideIn 0.3s ease forwards;
+  transform: translate(-113vw, -29vh);
+  
 }
 
 .burger-navbar {
