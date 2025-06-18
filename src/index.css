@@ -264,13 +264,25 @@ body {
   justify-content: space-between;
   padding: 0.5rem 2rem;
   z-index: 1000;
-  height: 4rem;
+  height: 3rem;
+}
+
+.navbar img {
+  width: 70px;
 }
 
 @media (max-width: 768px) {
   .navbar {
-    top: 0;
-    width: 100%;
+    top: 1rem;
+    left: unset;
+    transform: unset;
+    right: 1rem;
+    width: fit-content;
+    padding: 10px;
+  }
+
+  .navbar img {
+    display: none;
   }
 }
 
