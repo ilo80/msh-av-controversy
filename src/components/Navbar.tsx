@@ -63,9 +63,9 @@ function Navbar() {
           <li><HashLink smooth to="/#introduction" onClick={handleClick}>Introduction</HashLink></li>
           <li><HashLink smooth to="#terminology" onClick={handleClick}>Terminologie</HashLink></li>
           <li><HashLink smooth to="/#actors" onClick={handleClick}>Acteurs</HashLink></li>
+          <li><HashLink smooth to="/#graph" onClick={handleClick}>Cartographie</HashLink></li>
           <li><HashLink smooth to="/#timeline" onClick={handleClick}>Chronologie</HashLink></li>
           <li><HashLink smooth to="/#statistics" onClick={handleClick}>Statistiques</HashLink></li>
-          <li><HashLink smooth to="/#graph" onClick={handleClick}>Cartographie</HashLink></li>
         </ul>
       )}
 
@@ -75,9 +75,9 @@ function Navbar() {
             <li><HashLink smooth to="/#introduction" onClick={handleClick}>Introduction</HashLink></li>
             <li><HashLink smooth to="#terminology" onClick={handleClick}>Terminologie</HashLink></li>
             <li><HashLink smooth to="/#actors" onClick={handleClick}>Acteurs</HashLink></li>
+            <li><HashLink smooth to="/#graph" onClick={handleClick}>Cartographie</HashLink></li>
             <li><HashLink smooth to="/#timeline" onClick={handleClick}>Chronologie</HashLink></li>
             <li><HashLink smooth to="/#statistics" onClick={handleClick}>Statistiques</HashLink></li>
-            <li><HashLink smooth to="/#graph" onClick={handleClick}>Cartographie</HashLink></li>
           </ul>
         </div>
       )}
