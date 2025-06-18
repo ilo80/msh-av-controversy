@@ -18,7 +18,7 @@ const sourcesData: Source[] = [
     type: 'article',
   },
   {
-    id: 'avis_n2_vehciule_autonome_enjeux_dethique',
+    id: 'avis_n2_vehicule_autonome_enjeux_dethique',
     title: 'Avis n°2 - Véhicule autonome : enjeux d’éthique',
     organization: 'CCNE',
     date: 'Janvier 2023',
