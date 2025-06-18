@@ -550,6 +550,7 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 24px;
+  justify-items: center;
 }
 
 @media (max-width: 768px) {
@@ -616,6 +617,8 @@ a {
 .flip-card-front {
   background: white;
   color: black;
+  font-weight: bold;
+  text-align: center;
 }
 .flip-card-back {
   background: white;
