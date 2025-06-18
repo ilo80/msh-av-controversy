@@ -491,7 +491,7 @@ footer {
   align-items: center;
   min-height: 100vh;
   padding: 2rem;
-  background: #f9f9f9;
+  background: linear-gradient(120deg, #fffbe6 60%, #f5e5a2 100%);
   box-sizing: border-box;
 }
 
