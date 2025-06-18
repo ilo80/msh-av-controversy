@@ -9,6 +9,7 @@ Ce projet vise à analyser les enjeux sociaux, éthiques, techniques et juridiqu
 ## 📁 Contenu du dépôt
 
 - `src/pages/` : Code source des différentes pages du site (React + Vite)
+- `src/components/` : Composants utilisés par les pages du sites
 - `src/assets/` : Logos, images, graphiques et éléments visuels
 - `src/data/` : Données structurées (sources, statistiques, événements)
 - `src/models/` : Interfaces TypeScript pour typage strict
