@@ -79,8 +79,8 @@ function ActorSection() {
     if (now - lastScrollRef.current < 300) return
     lastScrollRef.current = now
 
-    if (e.deltaY < 0 && index < actors.length - 1) setIndex(i => i + 1)
-    if (e.deltaY > 0 && index > 0) setIndex(i => i - 1)
+    if (e.deltaY > 0 && index < actors.length - 1) setIndex(i => i + 1)
+    if (e.deltaY < 0 && index > 0) setIndex(i => i - 1)
   }
 
   return (
