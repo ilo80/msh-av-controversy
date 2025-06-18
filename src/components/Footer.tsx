@@ -10,7 +10,7 @@ function Footer() {
           <ul className="footer-links">
             <li>
               <a
-                href="https://drive.google.com/file/d/1kQ4sE6_k0XguLyodEm3VT5Or2VAzVTbk/view?usp=sharing"
+                href="https://drive.google.com/file/d/12hOV3sAKtvusdUYnyNJiTQfqvp84cqw4/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
