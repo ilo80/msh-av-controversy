@@ -68,8 +68,8 @@ function ActorSection() {
     const touch = e.changedTouches[0]
     const deltaY = touch.clientY - (touchStartYRef.current ?? 0)
 
-    if (deltaY > 0 && index < actors.length - 1) setIndex(i => i + 1)
-    if (deltaY < 0 && index > 0) setIndex(i => i - 1)
+    if (deltaY < 0 && index < actors.length - 1) setIndex(i => i + 1)
+    if (deltaY > 0 && index > 0) setIndex(i => i - 1)
   }
 
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
@@ -79,8 +79,8 @@ function ActorSection() {
     if (now - lastScrollRef.current < 300) return
     lastScrollRef.current = now
 
-    if (e.deltaY < 0 && index < actors.length - 1) setIndex(i => i + 1)
-    if (e.deltaY > 0 && index > 0) setIndex(i => i - 1)
+    if (e.deltaY > 0 && index < actors.length - 1) setIndex(i => i + 1)
+    if (e.deltaY < 0 && index > 0) setIndex(i => i - 1)
   }
 
   return (
