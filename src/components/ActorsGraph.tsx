@@ -108,7 +108,7 @@ function ActorsGraph() {
 
   return (
     <div id='graph' className="graph-container" ref={containerRef}>
-      <h1 className="graph-title" ref={titleRef}>Cartographie Controverse</h1>
+      <h1 className="graph-title" ref={titleRef}>Cartographie des acteurs</h1>
       
       <div className="graph-content">
         {dimensions.width > 0 && dimensions.height > 0 && (
