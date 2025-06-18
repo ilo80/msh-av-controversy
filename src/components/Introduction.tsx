@@ -11,7 +11,7 @@ function Introduction() {
       </div>
       
       <div className="moral-div">
-        <a href="https://moralmachine.net">Et vous êtes-vous moral ?</a>
+        <a href="https://moralmachine.net/hl/fr">Et vous êtes-vous moral ?</a>
       </div>
     </section>
   )
