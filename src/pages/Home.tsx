@@ -15,9 +15,9 @@ function Home() {
       <IntroductionSection />
       <Terminology />
       <ActorSection />
+      <ActorsGraph />
       <TimelineSection />
       <StatisticsSection />
-      <ActorsGraph />
       <Footer />
     </div>
   )
