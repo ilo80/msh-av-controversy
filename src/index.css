@@ -616,6 +616,7 @@ a {
 .flip-card-front {
   background: white;
   color: black;
+  font-weight: bold;
 }
 .flip-card-back {
   background: white;
