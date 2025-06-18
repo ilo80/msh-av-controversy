@@ -19,7 +19,7 @@ body {
 .graph-container {
   position: relative;
   height: 100vh;
-  margin: 0 10rem;
+  margin: 0 10rem 2rem 10rem;
 }
 
 .force-graph-canvas {
@@ -338,7 +338,6 @@ body {
 }
 
 footer {
-  margin-top: 2rem;
   padding: 3rem 1rem;
   background: #f9f9f9;
   border-top: 1px solid #eaeaea;
@@ -357,6 +356,30 @@ footer {
 .footer-wrapper div {
   flex: 1;
   min-width: 280px;
+}
+
+footer p {
+  margin-bottom: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #3182ce;
+}
+
+.footer-links {
+  margin-top: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  margin-top: revert;
 }
 
 .esiee-logo {
@@ -423,9 +446,8 @@ footer {
 
 .source-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 24px;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -446,6 +468,14 @@ footer {
 .source-link {
   color: #3182ce;
   text-decoration: none;
+}
+
+.source-viewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #f0f4ff 60%, #dbeafe 100%);
 }
 
 .source-content {
@@ -471,6 +501,7 @@ footer {
   text-align: center;
   background: linear-gradient(120deg, #f0f4ff 60%, #dbeafe 100%);
 }
+
 
 .back-home {
   background-color: #4a90e2;
