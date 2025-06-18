@@ -2,25 +2,17 @@ import { useState, useEffect } from "react";
 import Hamburger from "hamburger-react";
 
 import logo from "../assets/logo/logo.svg"
+import { HashLink } from 'react-router-hash-link';
 
 function Navbar() {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [displayHamburger, setDisplayHamburger] = useState(false);
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-
-    const targetId = e.currentTarget.getAttribute("href");
-    if (!targetId) return;
-
-    const targetElement = document.querySelector(targetId);
-    if (!targetElement) return;
-
+  const handleClick = () => {
     // Close the hamburger menu if it's open
     if (hamburgerOpen)
       toggleHamburger();
 
-    targetElement.scrollIntoView({ behavior: "smooth" });
     document.body.style.overflow = ""; // Reset overflow to default
   }
 
@@ -68,24 +60,24 @@ function Navbar() {
 
       { !displayHamburger && (
         <ul className="navbar-links">
-          <li><a href="#introduction" onClick={handleClick}>Introduction</a></li>
-          <li><a href="#terminology" onClick={handleClick}>Terminologie</a></li>
-          <li><a href="#actors" onClick={handleClick}>Acteurs</a></li>
-          <li><a href="#timeline" onClick={handleClick}>Chronologie</a></li>
-          <li><a href="#statistics" onClick={handleClick}>Statistiques</a></li>
-          <li><a href="#graph" onClick={handleClick}>Cartographie</a></li>
+          <li><HashLink smooth to="/#introduction" onClick={handleClick}>Introduction</HashLink></li>
+          <li><HashLink smooth to="#terminology" onClick={handleClick}>Terminologie</a></li>
+          <li><HashLink smooth to="/#actors" onClick={handleClick}>Acteurs</HashLink></li>
+          <li><HashLink smooth to="/#timeline" onClick={handleClick}>Chronologie</HashLink></li>
+          <li><HashLink smooth to="/#statistics" onClick={handleClick}>Statistiques</HashLink></li>
+          <li><HashLink smooth to="/#graph" onClick={handleClick}>Cartographie</HashLink></li>
         </ul>
       )}
 
       { hamburgerOpen && (
         <div className="mobile-menu">
           <ul className="mobile-navbar">
-            <li><a href="#introduction" onClick={handleClick}>Introduction</a></li>
-            <li><a href="#terminology" onClick={handleClick}>Terminologie</a></li>
-            <li><a href="#actors" onClick={handleClick}>Acteurs</a></li>
-            <li><a href="#timeline" onClick={handleClick}>Chronologie</a></li>
-            <li><a href="#statistics" onClick={handleClick}>Statistiques</a></li>
-            <li><a href="#graph" onClick={handleClick}>Cartographie</a></li>
+            <li><HashLink smooth to="/#introduction" onClick={handleClick}>Introduction</HashLink></li>
+            <li><HashLink smooth to="#terminology" onClick={handleClick}>Terminologie</a></li>
+            <li><HashLink smooth to="/#actors" onClick={handleClick}>Acteurs</HashLink></li>
+            <li><HashLink smooth to="/#timeline" onClick={handleClick}>Chronologie</HashLink></li>
+            <li><HashLink smooth to="/#statistics" onClick={handleClick}>Statistiques</HashLink></li>
+            <li><HashLink smooth to="/#graph" onClick={handleClick}>Cartographie</HashLink></li>
           </ul>
         </div>
       )}
