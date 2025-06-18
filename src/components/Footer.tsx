@@ -7,24 +7,6 @@ function Footer() {
     <footer>
       <div className="footer-wrapper">
         <div>
-          <p style={{ margin: 0, lineHeight: 1.5 }}>
-            &copy; {new Date().getFullYear()} La revue du savoir. <br />
-            <a
-              href="https://www.controverses-esiee.fr"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Controverses ESIEE
-            </a>{' '}
-            –{' '}
-            <a
-              href="https://www.esiee.fr"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              ESIEE Paris
-            </a>
-          </p>
           <ul className="footer-links">
             <li>
               <a
@@ -53,6 +35,26 @@ function Footer() {
               </HashLink>
             </li>
           </ul>
+        </div>
+        <div>
+          <p style={{ margin: 0, lineHeight: 1.5 }}>
+            &copy; {new Date().getFullYear()} La revue du savoir. <br />
+            <a
+              href="https://www.controverses-esiee.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Controverses ESIEE
+            </a>{' '}
+            –{' '}
+            <a
+              href="https://www.esiee.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ESIEE Paris
+            </a>
+          </p>
         </div>
         <div>
           <img
