@@ -328,8 +328,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  height: 101vh;
-  width: 100vw;
+  height: 154vh;
+  width: 162vw;
   background-color: white;
   box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
   /* padding: 2rem; */
@@ -338,7 +338,7 @@ body {
   flex-direction: column;
   gap: 1.5rem;
   animation: slideIn 0.3s ease forwards;
-  transform: translate(-84%, -3%);
+  transform: translate(-113vw, -29vh);
   
 }
 
