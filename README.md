@@ -1,54 +1,55 @@
-# React + TypeScript + Vite
+# 🚗 Dossier de Controverse : Les Voitures Autonomes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bienvenue sur le dépôt de notre travail de controverse sur les **voitures autonomes**, réalisé dans le cadre du projet [Controverses ESIEE](https://www.controverses-esiee.fr).
 
-Currently, two official plugins are available:
+## 🎯 Objectif
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Ce projet vise à analyser les enjeux sociaux, éthiques, techniques et juridiques entourant l’émergence des voitures autonomes. À travers une approche multidisciplinaire, nous avons exploré les points de tension entre promesses technologiques et réalités contemporaines.
 
-## Expanding the ESLint configuration
+## 📁 Contenu du dépôt
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- `pages/` : Code source des différentes pages du site (React + Vite)
+- `assets/` : Logos, images, graphiques et éléments visuels
+- `data/` : Données structurées (sources, statistiques, événements)
+- `models/` : Interfaces TypeScript pour typage strict
+- `README.md` : Ce fichier
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🔍 Thèmes abordés
+
+- **Éthique** : Qui sauver en cas d'accident ? Quelle responsabilité ?
+- **Technologie** : Niveau d’autonomie, capteurs, IA embarquée
+- **Société** : Acceptabilité sociale, emploi, mobilité
+- **Législation** : Cadres juridiques, responsabilités, RGPD
+- **Enjeux économiques** : Acteurs majeurs, investissements, brevets
+
+## 📊 Faits marquants
+
+Voici quelques statistiques clés que vous retrouverez sur le site :
+
+- **94 %** des accidents aux USA sont dus à une erreur humaine
+- **~200 000** trajets hebdomadaires en robot-taxi Waymo en 2025
+- **50+** décès liés à l’Autopilot Tesla depuis 2016
+- **20 à 50 %** d’économie d’énergie potentielle grâce à l’optimisation des flux
+
+
+## 🚀 Lancer le site en local
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Le site sera ensuite accessible à l'URL indiqué. 
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠️ Stack technique
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **React** (avec Vite)
+- **TypeScript**
+- **CSS modules**
+- **Recharts** pour les visualisations de données
+- **React Router DOM** + **HashLink** pour la navigation
+
+## 🙌 Remerciements
+
+Projet réalisé dans le cadre du module **Controverses** à **ESIEE Paris**  
+Encadré par l’équipe pédagogique de [controverses-esiee.fr](https://www.controverses-esiee.fr)
