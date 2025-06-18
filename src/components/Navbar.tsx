@@ -61,6 +61,7 @@ function Navbar() {
       { !displayHamburger && (
         <ul className="navbar-links">
           <li><HashLink smooth to="/#introduction" onClick={handleClick}>Introduction</HashLink></li>
+          <li><HashLink smooth to="#terminology" onClick={handleClick}>Terminologie</HashLink></li>
           <li><HashLink smooth to="/#actors" onClick={handleClick}>Acteurs</HashLink></li>
           <li><HashLink smooth to="/#timeline" onClick={handleClick}>Chronologie</HashLink></li>
           <li><HashLink smooth to="/#statistics" onClick={handleClick}>Statistiques</HashLink></li>
@@ -72,6 +73,7 @@ function Navbar() {
         <div className="mobile-menu">
           <ul className="mobile-navbar">
             <li><HashLink smooth to="/#introduction" onClick={handleClick}>Introduction</HashLink></li>
+            <li><HashLink smooth to="#terminology" onClick={handleClick}>Terminologie</HashLink></li>
             <li><HashLink smooth to="/#actors" onClick={handleClick}>Acteurs</HashLink></li>
             <li><HashLink smooth to="/#timeline" onClick={handleClick}>Chronologie</HashLink></li>
             <li><HashLink smooth to="/#statistics" onClick={handleClick}>Statistiques</HashLink></li>

@@ -14,7 +14,7 @@ const terminologyData: Terminology[] = [
   {
     id: 'sae-levels',
     term: 'Niveaux SAE',
-    definition: 'Classification standard de la Society of Automotive Engineers concernant l\'autonomie des véhicules. Niveau 0 : Aucune automatisation. Niveau 1 : Assistance au conducteur. Niveau 2 : Automatisation partielle. Niveau 3 : Automatisation conditionnelle. Niveau 4 : Automatisation élevée. Niveau 5 : Automatisation complète',
+    definition: 'Classification standard de la Society of Automotive Engineers concernant l\'autonomie des véhicules. Cette classification va de 0 (aucune autonomie) à 5 (autonomie totale).',
   },
   {
     id: 'lidar',
