@@ -220,6 +220,9 @@ body {
 }
 
 .moral-div a {
+  width: 100%;
+  height: 3rem;
+  line-height: 3rem;
   text-decoration: none;
   color: #000000;
 }
