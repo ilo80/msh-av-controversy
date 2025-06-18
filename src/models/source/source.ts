@@ -7,5 +7,5 @@ export interface Source {
     organization?: string;
     url: string;
     notes?: string;
-    type?: 'article' | 'report' | 'academic' | 'blog' | 'video' | 'news' | 'other';
+    type?: 'article' | 'report' | 'academic' | 'blog' | 'video' | 'news' | 'website' | 'other';
 }
