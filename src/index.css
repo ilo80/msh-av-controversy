@@ -618,6 +618,7 @@ a {
   background: white;
   color: black;
   font-weight: bold;
+  text-align: center;
 }
 .flip-card-back {
   background: white;
