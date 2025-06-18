@@ -8,11 +8,10 @@ Ce projet vise à analyser les enjeux sociaux, éthiques, techniques et juridiqu
 
 ## 📁 Contenu du dépôt
 
-- `pages/` : Code source des différentes pages du site (React + Vite)
-- `assets/` : Logos, images, graphiques et éléments visuels
-- `data/` : Données structurées (sources, statistiques, événements)
-- `models/` : Interfaces TypeScript pour typage strict
-- `README.md` : Ce fichier
+- `src/pages/` : Code source des différentes pages du site (React + Vite)
+- `src/assets/` : Logos, images, graphiques et éléments visuels
+- `src/data/` : Données structurées (sources, statistiques, événements)
+- `src/models/` : Interfaces TypeScript pour typage strict
 
 ## 🔍 Thèmes abordés
 
